@@ -12,13 +12,14 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(){std::cout<<"PhoneBook created"<<std::endl; _index = 0;}
+PhoneBook::PhoneBook(): _index(0){std::cout<<"PhoneBook created"<<std::endl;}
 PhoneBook::~PhoneBook(){std::cout<<"PhoneBook destroyed"<<std::endl;}
 
-void	get_and_check_input(PhoneBook phonebook)
+void	do_phone_book(PhoneBook& phonebook)
 {
 	std::string	command;
 
+	std::cout<<"enter a command: "<<std::endl;
 	std::getline(std::cin, command);
 	while(command.empty())
 	{
@@ -28,18 +29,14 @@ void	get_and_check_input(PhoneBook phonebook)
 	check_for_commands(command, phonebook);
 }
 
-void	do_phone_book()
-{
-	PhoneBook phonebook;
-	std::cout<<"enter a command: "<<std::endl;
-	get_and_check_input(phonebook);
-}
-
 int	main(int argc, char **argv)
 {
 	(void)argv;
 	if (argc != 1)
-		std::cout<<"you need 1 argument u dickhead"<<std::endl;
+		std::cout<<"you only need 1 argument u dickhead"<<std::endl;
 	else
-		do_phone_book();
+	{
+		PhoneBook phonebook;
+		do_phone_book(phonebook);
+	}
 }

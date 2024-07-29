@@ -10,20 +10,26 @@
 /* ************************************************************************** */
 
 #include<iostream>
-/* #include "Contacts.hpp" */
+#include "Contacts.hpp"
 
 class PhoneBook
 {
 	public :
-		/* Contacts contacts[8]; */
+		Contacts contacts[8];
 		PhoneBook(void);
 		~PhoneBook(void);
+		void addContact(const Contacts& contact);
+		void displayContacts() const;
+		void incrementIndex();
+		int  getIndex() const;
+
+	private:
 		int	_index;
 };
 
-void	do_phone_book();
-void	check_for_commands(std::string command, PhoneBook phonebook);
-void	get_and_check_input(PhoneBook phonebook);
+void	do_phone_book(PhoneBook& phonebook);
+void	check_for_commands(std::string command, PhoneBook& phonebook);
+// void	get_and_check_input(PhoneBook& phonebook);
 
 # define CTCT_NAME "whats the first name ? "
 # define CTCT_LAST_NAME "whats the last name ? "
