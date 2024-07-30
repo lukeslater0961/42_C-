@@ -15,16 +15,18 @@
 class PhoneBook
 {
 	public :
-		Contacts contacts[8];
 		PhoneBook(void);
 		~PhoneBook(void);
-		void addContact(const Contacts& contact);
-		void displayContacts() const;
-		void incrementIndex();
-		int  getIndex() const;
+		void	addContact(const Contacts& contact);
+		void	incrementIndex();
+		int		getIndex() const;
+		void	displayContacts() const;
+		void	get_contacts();
 
 	private:
-		int	_index;
+		Contacts	contacts[8];
+		int			_index;
+		int			contactCount;
 };
 
 void	do_phone_book(PhoneBook& phonebook);

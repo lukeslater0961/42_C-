@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:32:36 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/29 13:28:08 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/07/31 00:13:12 by bananabread      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	Contacts{
 		void	set_nick();
 		void	set_number();
 		void	set_secret();
+		void	get_info() const;
 
 	private:
 		int		_index;

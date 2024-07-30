@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:42:08 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/29 13:48:02 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/07/31 00:33:12 by bananabread      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void PhoneBook::incrementIndex() {
     _index++;
 }
 
-void PhoneBook::addContact(const Contacts& contact) {
+void PhoneBook::addContact(const Contacts& contact)
+{
+	if (_index == 8)
+		_index = 0;
     contacts[_index] = contact;
     contacts[_index].setIndex(_index);
     contacts[_index].setfirst_name();
@@ -28,6 +31,8 @@ void PhoneBook::addContact(const Contacts& contact) {
 	contacts[_index].set_nick();
 	contacts[_index].set_number();
 	contacts[_index].set_secret();
+	if (contactCount < 8)
+		contactCount++;
     _index++;
 }
 
