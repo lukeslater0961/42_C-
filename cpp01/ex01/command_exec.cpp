@@ -36,7 +36,7 @@ void Contacts::get_info() const
 
 void PhoneBook::displayContacts() const
 {
-    for (int i = 0; i < (contactCount - 1); i++)
+    for (int i = 0; i <= (contactCount - 1); i++)
         contacts[i].get_info();
 }
 

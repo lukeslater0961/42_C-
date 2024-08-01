@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <limits>
 
 PhoneBook::PhoneBook(): _index(0), contactCount(0){std::cout<<"PhoneBook created"<<std::endl;}
 PhoneBook::~PhoneBook(){std::cout<<"PhoneBook destroyed"<<std::endl;}
