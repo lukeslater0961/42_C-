@@ -11,7 +11,7 @@
 
 #include<iostream>
 #include "Contacts.hpp"
-
+#include <sstream> 
 class PhoneBook
 {
 	public :

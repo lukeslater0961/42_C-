@@ -25,19 +25,61 @@ void	add_contact(PhoneBook& phonebook)
 	do_phone_book(phonebook);
 }
 
+void    Contacts::print_spaces(std::string text) const
+{            
+        for (long unsigned int i = 0; text.length() <= 10 &&  i < (10 - text.length()); i++) 
+                std::cout <<" ";
+}  
+
+std::string	index_to_str(int index)
+{
+	std::stringstream ss;
+	ss << index;
+    	return ss.str();
+}
+
 void Contacts::get_info() const
 {
-    std::cout << "First Name: " << first_name << std::endl;
-    std::cout << "Last Name: " << last_name << std::endl;
-    std::cout << "Nickname: " << nickname << std::endl;
-    std::cout << "Phone Number: " << number << std::endl;
-    std::cout << "Darkest Secret: " << darkest_secret << std::endl;
+	std::cout << "|     Index|First name|Last name | Nickname |  Number  | Secret   |" <<std::endl;
+	std::cout<< "|";
+	std::cout << _index;
+	print_spaces(index_to_str(_index));
+	std::cout<< "|";
+	std::cout << first_name;
+	print_spaces(first_name);
+	std::cout << "|";
+	std::cout << last_name;
+	print_spaces(last_name);
+	std::cout << "|";
+	std::cout << nickname;
+	print_spaces(nickname);
+	std::cout << "|";
+	std::cout << number;
+	print_spaces(number);
+	std::cout << "|";
+	std::cout << "shhhh";
+	print_spaces("shhhh");
+	std::cout << "|" << std::endl;;
 }
 
 void PhoneBook::displayContacts() const
 {
-    for (int i = 0; i <= (contactCount - 1); i++)
-        contacts[i].get_info();
+	std::string     index;
+    
+	for (int i = 0; i <= (contactCount - 1); i++)
+		contacts[i].get_info();
+	std::cout << "what contact do you want to look at ?"<< std::endl;
+        std::getline(std::cin, index);
+        if (std::cin.eof())
+                return ;
+        while(index.empty())
+        {
+		std::cout << "what contact do you want to look at ?"<< std::endl;
+                std::getline(std::cin, index);
+        }
+	contacts[index].get_info();
+
+
 }
 
 void	check_for_commands(std::string command, PhoneBook& phonebook)

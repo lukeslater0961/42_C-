@@ -22,6 +22,8 @@ void	do_phone_book(PhoneBook& phonebook)
 
 	std::cout<<"enter a command: "<<std::endl;
 	std::getline(std::cin, command);
+	if (std::cin.eof())
+		return ;
 	while(command.empty())
 	{
 		std::cout<<"enter a command: "<<std::endl;
