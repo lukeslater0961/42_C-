@@ -15,9 +15,7 @@ PROG_NAME = phonebook
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
-SRCS = PhoneBook.cpp\
-	   command_exec.cpp\
-	   actions.cpp 
+SRCS = 
 
 OBJS = $(SRCS:.cpp=.o)
 
