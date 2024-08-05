@@ -23,6 +23,8 @@ class	Contacts{
 		void	set_secret();
 		void	get_info() const;
 		void	print_spaces(std::string text) const;
+		void	get_nolim_info() const;
+
 	private:
 		int		_index;
 		std::string	first_name;
