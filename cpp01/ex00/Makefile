@@ -10,12 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-PROG_NAME = phonebook
+PROG_NAME = Zombie
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
-SRCS = 
+SRCS = main.cpp\
+       Zombie.cpp\
+       randomChump.cpp\
+       newZombie.cpp
+
 
 OBJS = $(SRCS:.cpp=.o)
 
