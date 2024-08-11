@@ -10,16 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-PROG_NAME = Zombie
+PROG_NAME = BRAIN
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp\
-       Zombie.cpp\
-       randomChump.cpp\
-       newZombie.cpp\
-       zombieHorde.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)
@@ -42,7 +38,7 @@ define SUCCESS_MESSAGE
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex01 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex02 cleaned successfully!\n"
 endef
 #__________________
 
