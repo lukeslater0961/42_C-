@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-PROG_NAME = BRAIN
+PROG_NAME = unecessaryViolence
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
@@ -40,7 +40,7 @@ define SUCCESS_MESSAGE
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex02 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex03 cleaned successfully!\n"
 endef
 #__________________
 

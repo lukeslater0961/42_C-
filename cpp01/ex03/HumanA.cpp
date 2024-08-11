@@ -7,5 +7,5 @@ HumanA::~HumanA(){std::cout<< "HumanA destroyed"<<std::endl;}
 
 void	HumanA::attack()
 {
-	std::cout << _name << "attacks with their weapon" << weapon.getType() <<std::endl;
+	std::cout << _name << " attacks with their weapon :" << weapon.getType() <<std::endl;
 }
