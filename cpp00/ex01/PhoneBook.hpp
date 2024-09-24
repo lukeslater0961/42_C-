@@ -31,7 +31,6 @@ class PhoneBook
 
 void	do_phone_book(PhoneBook& phonebook);
 void	check_for_commands(std::string command, PhoneBook& phonebook);
-// void	get_and_check_input(PhoneBook& phonebook);
 
 # define CTCT_NAME "whats the first name ? "
 # define CTCT_LAST_NAME "whats the last name ? "

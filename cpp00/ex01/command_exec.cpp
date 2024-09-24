@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:02:15 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/31 00:29:32 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/09/24 08:40:36 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	add_contact(PhoneBook& phonebook)
 
 void    Contacts::print_spaces(std::string text) const
 {            
-        for (long unsigned int i = 0; text.length() <= 10 &&  i < (10 - text.length()); i++) 
-                std::cout <<" ";
+    for (long unsigned int i = 0; text.length() <= 10 &&  i < (10 - text.length()); i++) 
+		std::cout <<" ";
 	std::cout << "|";
 }  
 
@@ -109,21 +109,26 @@ void Contacts::get_nolim_info() const
 void PhoneBook::displayContacts() const
 {
 	std::string     idx;
-    
+
+	if (contactCount <= 0)
+	{
+		std::cout << "No saved contacts found" << std::endl;
+		return ;
+	}
 	for (int i = 0; i <= (contactCount - 1); i++)
 		contacts[i].get_info();
 	std::cout << "what contact do you want to look at ?"<< std::endl;
-        std::getline(std::cin, idx);
-        if (std::cin.eof())
-                return ;
-        while(idx.empty())
-        {
+	std::getline(std::cin, idx);
+    if (std::cin.eof())
+        return ;
+    while(idx.empty())
+    {
 		std::cout << "what contact do you want to look at ?"<< std::endl;
-                std::getline(std::cin, idx);
+        std::getline(std::cin, idx);
 	}
 	int index;
-     	std::stringstream ss(idx);
-    	ss >> index;
+    std::stringstream ss(idx);
+    ss >> index;
 	index--;
 	if (index >= 0 && index <= 7)
 		contacts[index].get_nolim_info();

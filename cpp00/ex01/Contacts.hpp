@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:32:36 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/31 00:13:12 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/09/24 08:31:35 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ class	Contacts{
 	public:
 		Contacts();
 		~Contacts();
-		void setIndex(int idx);
+		void	setIndex(int idx);
 		void 	setfirst_name();
 		void	set_last();
 		void	set_nick();
