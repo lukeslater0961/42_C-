@@ -6,11 +6,12 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:45:44 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/31 00:26:09 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/10/14 15:20:36 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <csignal>
 #include <limits>
 
 PhoneBook::PhoneBook(): _index(0), contactCount(0){std::cout<<"PhoneBook created"<<std::endl;}

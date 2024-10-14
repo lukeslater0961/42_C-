@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:42:08 by lslater           #+#    #+#             */
-/*   Updated: 2024/07/31 00:33:12 by bananabread      ###   ########.fr       */
+/*   Updated: 2024/10/14 15:24:52 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void Contacts::set_last()
 
 	std::cout<<CTCT_LAST_NAME<<std::endl;
 	getline(std::cin, lst_name);
+	if (std::cin.eof())
+		return ;
 	while (lst_name.empty())
 		getline(std::cin, lst_name);
     last_name = lst_name;
@@ -53,6 +55,8 @@ void Contacts::set_secret()
 
 	std::cout<<CTCT_D_SECRET<<std::endl;
 	getline(std::cin, scrt);
+	if (std::cin.eof())
+		return ;
 	while (scrt.empty())
 		getline(std::cin, scrt);
     darkest_secret = scrt;
@@ -64,6 +68,8 @@ void Contacts::set_number()
 
 	std::cout<<CTCT_NMBER<<std::endl;
 	getline(std::cin, nmber);
+	if (std::cin.eof())
+		return ;
 	while (nmber.empty())
 		getline(std::cin, nmber);
     number = nmber;
@@ -75,6 +81,8 @@ void Contacts::set_nick()
 
 	std::cout<<CTCT_NICKNAME<<std::endl;
 	getline(std::cin, nick);
+	if (std::cin.eof())
+		return ;
 	while (nick.empty())
 		getline(std::cin, nick);
     nickname = nick;
@@ -86,6 +94,8 @@ void Contacts::setfirst_name()
 
 	std::cout<<CTCT_NAME<<std::endl;
 	getline(std::cin, frst_name);
+	if (std::cin.eof())
+		return ;
 	while (frst_name.empty())
 		getline(std::cin, frst_name);
     first_name = frst_name;

@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:02:15 by lslater           #+#    #+#             */
-/*   Updated: 2024/09/24 08:46:49 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/14 15:28:45 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,21 @@ void Contacts::get_info() const
 	std::cout << _index + 1;
 	print_spaces(index_to_str(_index));
 	if (first_name.length() > 10)
-	{
-		std::cout<< "name";
-		print_spaces("name");
-	}
+		std::cout << first_name.substr(0, 9);
 	else
 	{
 		std::cout << first_name;
 		print_spaces(first_name);
 	}
 	if (last_name.length() > 10)
-	{
-		std::cout<< "last name";
-		print_spaces("last name");
-	}
+		std::cout << last_name.substr(0, 9);
 	else
 	{
 		std::cout << last_name;
 		print_spaces(last_name);
 	}
 	if (nickname.length() > 10)
-	{
-		std::cout<< "nickname";
-		print_spaces("nickname");
-	}
+		std::cout << nickname.substr(0, 9);
 	else
 	{
 		std::cout << nickname;
