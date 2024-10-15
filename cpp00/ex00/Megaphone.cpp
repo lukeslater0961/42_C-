@@ -6,7 +6,7 @@
 /*   By: lslater <lslater@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:02:41 by lslater           #+#    #+#             */
-/*   Updated: 2024/09/24 08:27:28 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/15 12:36:26 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	to_upper(char **argv)
 {
 	std::string str;
 	for (int i = 1; argv[i] != NULL; i++)
-	{
 		str.append(argv[i]);
-		str.append(" ");
-	}
 	for (std::string::iterator iter = str.begin(); iter != str.end(); iter++)
 	{
 		if (std::isalnum(*iter))

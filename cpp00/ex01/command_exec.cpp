@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:02:15 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/15 11:40:42 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/15 12:31:46 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void PhoneBook::displayContacts() const
     std::stringstream ss(idx);
     ss >> index;
 	index--;
-	if (index >= 0 && index <= 7)
+	if (!(contactCount < index) && (index >= 0 && index <= 7))
 		contacts[index].get_nolim_info();
 	else
 		std::cout << "invalid index"<< std::endl;
