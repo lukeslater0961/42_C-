@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:02:15 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/14 15:29:18 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/15 11:40:42 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,30 @@ void Contacts::get_info() const
 	std::cout << _index + 1;
 	print_spaces(index_to_str(_index));
 	if (first_name.length() > 10)
-		std::cout << first_name.substr(0, 9);
+	{
+		std::cout << first_name.substr(0, 9) << '.';
+		std::cout<< "|";
+	}
 	else
 	{
 		std::cout << first_name;
 		print_spaces(first_name);
 	}
 	if (last_name.length() > 10)
-		std::cout << last_name.substr(0, 9);
+	{
+		std::cout << last_name.substr(0, 9) << '.';
+		std::cout<< "|";
+	}
 	else
 	{
 		std::cout << last_name;
 		print_spaces(last_name);
 	}
 	if (nickname.length() > 10)
-		std::cout << nickname.substr(0, 9);
+	{
+		std::cout << nickname.substr(0, 9) << '.';
+		std::cout<< "|";
+	}
 	else
 	{
 		std::cout << nickname;
@@ -68,13 +77,14 @@ void Contacts::get_info() const
 	}
 	if (number.length() > 10)
 	{
-		std::cout<< "number";
-		print_spaces("number");
+		std::cout << number.substr(0, 9) << '.'; 
+		std::cout<< "|";
 	}
 	else
 	{
 		std::cout << number;
 		print_spaces(number);
+
 	}
 	std::cout << "shhhh     ";
 	std::cout<<"|" <<std::endl;
@@ -82,19 +92,11 @@ void Contacts::get_info() const
 
 void Contacts::get_nolim_info() const
 {
-	std::cout << "|     Index|First name|Last name | Nickname |  Number  | Secret   |" <<std::endl;
-	std::cout << "|";
-	std::cout << _index + 1;
-	print_spaces(index_to_str(_index));
-	std::cout << first_name;
-	print_spaces(first_name);
-	std::cout << last_name;
-	print_spaces(nickname);
-	std::cout << nickname;
-	print_spaces(nickname);
-	std::cout << number;
-	print_spaces(number);
-	std::cout << darkest_secret <<std::endl;
+	std::cout << "first name :" << first_name << std::endl;
+	std::cout << "last name :" << last_name << std::endl;
+	std::cout << "nickname :" << nickname << std::endl;
+	std::cout << "number :" << number << std::endl;
+	std::cout << "darkest secret :" << darkest_secret <<std::endl;
 }
 
 void PhoneBook::displayContacts() const
