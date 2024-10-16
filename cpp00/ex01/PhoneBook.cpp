@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:45:44 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/15 13:38:39 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/16 09:47:53 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	do_phone_book(PhoneBook& phonebook)
 	{
 		std::cout<<"enter a command: "<<std::endl;
 		std::getline(std::cin, command);
+		if (std::cin.eof())
+			return ;
 	}
 	check_for_commands(command, phonebook);
 }

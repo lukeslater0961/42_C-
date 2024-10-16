@@ -1,5 +1,4 @@
 #include "sed.hpp"
-#include <fstream>
 
 int	parseArgs(char **argv)
 {
@@ -22,11 +21,15 @@ int	parseArgs(char **argv)
 	return (1);
 }
 
-std::ifstream*	CheckAndOpen(char **argv)
+int	CheckAndOpen(char **argv)
 {
-	std::ifstream* inFile = new std::ifstream(argv[1], std::ios::in);
-	if (!*inFile)
+	std::ifstream inFile(argv[1]);
+	if (!inFile)
+	{
 		error_mngment(FILE_CANT_OPEN);
+		return (1);
+	}
 	std::cout<<"file opened"<<std::endl;
-	return (inFile);
+	inFile.close();
+	return (0);
 }

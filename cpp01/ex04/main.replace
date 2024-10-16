@@ -10,7 +10,7 @@ int	main(int argc, char **argv)
 			return (1);
 		std::ifstream* inFile = CheckAndOpen(argv);
 		if (inFile)
-			do_sed(inFile, argv[1]);
-		destroy(inFile);
+			do_find_n_replace(inFile, argv[1]);
 	}
 }
+

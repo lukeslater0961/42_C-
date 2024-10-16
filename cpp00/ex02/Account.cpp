@@ -14,6 +14,7 @@ int	Account::getNbDeposits(void){return(_totalNbDeposits);}
 int	Account::getNbWithdrawals(void){return(_totalNbWithdrawals);}
 
 
+
 void	Account::makeDeposit(int deposit)
 {
 	std::cout << "amount:" << _amount;
