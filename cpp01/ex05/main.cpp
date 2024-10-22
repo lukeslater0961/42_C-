@@ -7,5 +7,4 @@ int	main(void)
 	harl.complain("ERROR");
 	harl.complain("WARNING");
 	harl.complain("pooptiscoop");
-	return (EXIT_SUCCESS);
 }
