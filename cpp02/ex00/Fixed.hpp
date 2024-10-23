@@ -5,13 +5,18 @@ class	Fixed
 	public:
 		Fixed():_FPValue(0){};
 		
-		Fixed(const Fixed& other){std::cout << "copy constructor called" << std::endl;} //copy constructor
+		Fixed(const Fixed& other)
+		{
+			std::cout << "copy constructor called" << std::endl;
+			this->_FPValue = other._FPValue;
+		} //copy constructor
 
 		Fixed& operator=(const Fixed& other)//copy assignment operator
 		{
 			std::cout << "copy assignment operator called" <<std::endl;
 			if (this == &other)
 				return (*this);
+			this->_FPValue = other._FPValue;
 			return (*this);
 		}
 
