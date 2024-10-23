@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:42:08 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/16 09:49:40 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/21 07:31:41 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,5 @@ void Contacts::setfirst_name()
 }
 
 
-void Contacts::setIndex(int idx)
-{
-    _index = idx;
-}
+void Contacts::setIndex(int idx){_index = idx;}
                          

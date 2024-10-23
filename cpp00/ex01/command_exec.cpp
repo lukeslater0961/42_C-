@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:02:15 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/15 12:31:46 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/21 07:38:48 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ std::string	index_to_str(int index)
 
 void Contacts::get_info() const
 {
-	std::cout << "|     Index|First name|Last name | Nickname |  Number  | Secret   |" <<std::endl;
+	std::cout << "|  Index  |First name|Last name | Nickname |  Number  |" <<std::endl;
 	std::cout<< "|";
 	std::cout << _index + 1;
 	print_spaces(index_to_str(_index));
@@ -84,10 +84,8 @@ void Contacts::get_info() const
 	{
 		std::cout << number;
 		print_spaces(number);
-
 	}
-	std::cout << "shhhh     ";
-	std::cout<<"|" <<std::endl;
+	std::cout << std::endl;
 }
 
 void Contacts::get_nolim_info() const

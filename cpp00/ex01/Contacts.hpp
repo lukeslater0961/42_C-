@@ -6,10 +6,14 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:32:36 by lslater           #+#    #+#             */
-/*   Updated: 2024/09/24 08:31:35 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/21 07:42:22 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	CONTACTS_HPP
+#define	CONTACTS_HPP
+
+#include <sstream> 
 class	Contacts{
 
 	public:
@@ -33,3 +37,5 @@ class	Contacts{
 		std::string	number;
 		std::string	darkest_secret;
 };
+
+#endif

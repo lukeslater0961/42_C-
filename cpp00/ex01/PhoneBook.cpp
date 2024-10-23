@@ -6,7 +6,7 @@
 /*   By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:45:44 by lslater           #+#    #+#             */
-/*   Updated: 2024/10/16 09:47:53 by lslater          ###   ########.fr       */
+/*   Updated: 2024/10/21 07:31:20 by lslater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 {
 	(void)argv;
 	if (argc != 1)
-		std::cout<<"you only need 1 argument u dickhead"<<std::endl;
+		std::cout<<"you only need 1 argument"<<std::endl;
 	else
 	{
 		PhoneBook phonebook;
