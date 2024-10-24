@@ -21,7 +21,10 @@ void	do_sed(std::ifstream *inFile, std::string filename, std::string tofind, std
 
 		size_t	pos = 0;
 		while ((pos = line.find(tofind)) && pos <= line.length())
-			line.replace(pos, tofind.length(), inputstring);
+		{
+			line.erase(pos, tofind.length());
+			line.insert(pos, inputstring);
+		}
 		outputFile << line <<std::endl;
 	}
 	remove("temp.tmp");
