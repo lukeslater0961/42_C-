@@ -1,35 +1,31 @@
+#ifndef FIXED_H
+#define FIXED_H
+
 #include <iostream>
 
 class	Fixed
 {
 	public:
-		Fixed():_FPValue(0){std::cout << "default constructor called" << std::endl;};
+		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
 		
-		Fixed(const Fixed& other)
-		{
-			std::cout << "copy constructor called" << std::endl;
-			this->_FPValue = other._FPValue;
-		} //copy constructor
+		Fixed(const Fixed& other);
 
-		Fixed& operator=(const Fixed& other)//copy assignment operator
-		{
-			std::cout << "copy assignment operator called" <<std::endl;
-			if (this == &other)
-				return (*this);
-			this->_FPValue = other._FPValue;
-			return (*this);
-		}
+		Fixed& operator=(const Fixed& other);
 
-		~Fixed(){std::cout << "Destructor called" << std::endl;};
+		~Fixed();
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
 		float	toFloat(void) const;
 		int		toInt(void) const;
-	
+
 	private:
 
 		int					_FPValue;
 		static const int	_numBits = 8;
 };
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+#endif
