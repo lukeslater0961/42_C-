@@ -27,5 +27,6 @@ class	Fixed
 		int					_FPValue;
 		static const int	_numBits = 8;
 };
+
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 #endif

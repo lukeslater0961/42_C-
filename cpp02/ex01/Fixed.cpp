@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 #include <cmath>
-#include <locale>
 
 Fixed::Fixed():_FPValue(0){std::cout << "default constructor called" << std::endl;};
 Fixed::~Fixed(){std::cout << "Destructor called" << std::endl;};
@@ -33,13 +32,6 @@ int		Fixed::getRawBits(void) const{return (_FPValue);}
 
 void	Fixed::setRawBits(int const raw){this->_FPValue = raw;}
 
+float	Fixed::toFloat(void) const{return (static_cast<float>(_FPValue) / (1 << _numBits));}
 
-float	Fixed::toFloat(void) const
-{
-	return (static_cast<float>(_FPValue) / (1 << _numBits));
-}
-
-int		Fixed::toInt(void) const
-{
-	return (_FPValue >> _numBits);
-}
+int		Fixed::toInt(void) const{return (_FPValue >> _numBits);}

@@ -1,26 +1,18 @@
 #include <iostream>
 
+#ifndef FIXED_H
+#define FIXED_H
+
 class	Fixed
 {
 	public:
-		Fixed():_FPValue(0){};
-		
-		Fixed(const Fixed& other)
-		{
-			std::cout << "copy constructor called" << std::endl;
-			this->_FPValue = other._FPValue;
-		} //copy constructor
+		Fixed();
+		Fixed(const int value);
+		Fixed(const Fixed& other);
 
-		Fixed& operator=(const Fixed& other)//copy assignment operator
-		{
-			std::cout << "copy assignment operator called" <<std::endl;
-			if (this == &other)
-				return (*this);
-			this->_FPValue = other._FPValue;
-			return (*this);
-		}
+		Fixed& operator=(const Fixed& other);
 
-		~Fixed(){};
+		~Fixed();
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);	
@@ -30,3 +22,5 @@ class	Fixed
 		int					_FPValue;
 		static const int	_numBits = 8;
 };
+
+#endif

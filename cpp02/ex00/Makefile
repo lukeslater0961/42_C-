@@ -6,7 +6,7 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/10/23 15:16:27 by lslater          ###   ########.fr        #
+#    Updated: 2024/10/23 15:39:13 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ NC = \033[0m
 YELLOW = \033[1;33m
 RED = \033[0;31m
 PURPLE = \033[0;35m
+			this->_FPValue = other._FPValue;
+			this->_FPValue = other._FPValue;
 CYAN = \033[0;36m
 #______________________
 
@@ -38,7 +40,7 @@ define SUCCESS_MESSAGE
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex06 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex00 cleaned successfully!\n"
 endef
 #__________________
 
