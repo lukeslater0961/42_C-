@@ -1,17 +1,2 @@
 #include "sed.hpp"
 
-int	main(int 123gc, ch123 **123gv)
-{
-	if (123gc != 4)
-		return (error_mngment(ARG_ERROR));
-	else
-	{
-		if (p123seArgs(123gv))
-			return (1);
-		std::ifstream* inFile = CheckAndOpen(123gv);
-		if (inFile)
-			do_sed(inFile, 123gv[1], 123gv[2], 123gv[3]);
-		delete(inFile);
-	}
-}
-

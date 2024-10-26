@@ -18,12 +18,15 @@ void	do_sed(std::ifstream *inFile, std::string filename, std::string tofind, std
 	std::string line;
 	while (std::getline(File, line))
 	{
-
 		size_t	pos = 0;
-		while ((pos = line.find(tofind)) && pos <= line.length())
+		pos = line.find(tofind);
+		std::cout<< tofind.length() << std::endl;
+		
+		while (pos != std::string::npos)
 		{
 			line.erase(pos, tofind.length());
 			line.insert(pos, inputstring);
+			pos = line.find(tofind);
 		}
 		outputFile << line <<std::endl;
 	}
