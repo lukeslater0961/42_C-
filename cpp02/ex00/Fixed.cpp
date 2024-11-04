@@ -2,9 +2,7 @@
 
 Fixed::~Fixed(){std::cout << "Destructor called" << std::endl;};
 
-
 Fixed::Fixed():_FPValue(0){std::cout << "default constructor called" << std::endl;};
-Fixed::Fixed(const int){std::cout << "const int constructor called" << std::endl;};
 
 int	Fixed::getRawBits(void) const{return (_FPValue);}
 
@@ -15,12 +13,12 @@ Fixed& Fixed::operator=(const Fixed& other)//copy assignment operator
 	std::cout << "copy assignment operator called" <<std::endl;
 	if (this == &other)
 		return (*this);
-	this->_FPValue = other._FPValue;
+	this->_FPValue = other.getRawBits();
 	return (*this);
 }
 
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "copy constructor called" << std::endl;
-	this->_FPValue = other._FPValue;
+	*this = other;
 } //copy constructor

@@ -10,7 +10,7 @@ Fixed::Fixed(const float value):_FPValue(static_cast<int>(roundf(value * (1 << _
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "copy constructor called" << std::endl;
-	this->_FPValue = other._FPValue;
+	*this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
@@ -18,7 +18,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 	std::cout << "copy assignment operator called" <<std::endl;
 	if (this == &other)
 		return (*this);
-	this->_FPValue = other._FPValue;
+	this->_FPValue = other.getRawBits();
 	return (*this);
 }
 
