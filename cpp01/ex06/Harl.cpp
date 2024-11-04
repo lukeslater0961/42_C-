@@ -32,11 +32,29 @@ void	Harl::complain(std::string level)
 	{
 		if (level == levels[i])
 		{
-			(this->*actions[i])();
+			/*(this->*actions[i])();
 			for (unsigned int j = i + 1; j < (sizeof(levels) / sizeof(levels[0])); j++)
 				(this->*actions[j])();
-			return ;
+			return ;*/
+			switch (i) {
+				case 0 :
+					(this->*actions[0])();
+				case 1 :
+					(this->*actions[1])();
+				case 2 :
+					(this->*actions[2])();
+				case 3 :
+					{
+						(this->*actions[3])();
+						break;
+					}
+			}
+			break;
+		}
+		else
+		{
+			std::cout << "no matching level found" << std::endl;
+			break;
 		}
 	}
-	std::cout << "no matching level found" << std::endl;
 }
