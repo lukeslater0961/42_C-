@@ -26,7 +26,16 @@ std::ifstream*	CheckAndOpen(char **argv)
 {
 	std::ifstream* inFile = new std::ifstream(argv[1], std::ios::in);
 	if (!*inFile)
+	{
+		delete(inFile);
 		error_mngment(FILE_CANT_OPEN);
-	std::cout<<"file opened"<<std::endl;
+		return (NULL);
+	}
+	else if (inFile->peek() == std::ifstream::traits_type::eof())
+	{
+		delete(inFile);
+		error_mngment(FILE_EMPTY);
+		return (NULL);
+	}
 	return (inFile);
 }
