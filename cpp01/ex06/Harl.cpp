@@ -32,10 +32,6 @@ void	Harl::complain(std::string level)
 	{
 		if (level == levels[i])
 		{
-			/*(this->*actions[i])();
-			for (unsigned int j = i + 1; j < (sizeof(levels) / sizeof(levels[0])); j++)
-				(this->*actions[j])();
-			return ;*/
 			switch (i) {
 				case 0 :
 					(this->*actions[0])();
