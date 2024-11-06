@@ -6,7 +6,7 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/11/06 11:24:31 by lslater          ###   ########.fr        #
+#    Updated: 2024/11/06 16:55:36 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = ClapTrap.cpp \
+	   ScavTrap.cpp	\
 	   main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
