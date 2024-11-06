@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : Hitpoints(100), Energypoints(50), Attackdamage(20), Name(name) {std::cout << Name << " was created" << std::endl;};
+ClapTrap::ClapTrap(std::string name) : Hitpoints(10), Energypoints(10), Attackdamage(0), Name(name) {std::cout << Name << " was created" << std::endl;};
 ClapTrap::~ClapTrap(){std::cout<< Name << " was destroyed" << std::endl;};
 
 ClapTrap::ClapTrap(const ClapTrap& other)
