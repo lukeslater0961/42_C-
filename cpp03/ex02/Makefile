@@ -6,17 +6,18 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/11/07 09:30:24 by lslater          ###   ########.fr        #
+#    Updated: 2024/11/07 10:22:22 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PROG_NAME = ScavTrap
+PROG_NAME = FragTrap
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = ClapTrap.cpp \
 	   ScavTrap.cpp	\
+	   FragTrap.cpp \
 	   main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
@@ -41,7 +42,7 @@ define SUCCESS_MESSAGE
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex01 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex02 cleaned successfully!\n"
 endef
 #__________________
 
