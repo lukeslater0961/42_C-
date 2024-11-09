@@ -1,7 +1,7 @@
 #include "Dog.hpp"
 
 Dog::Dog(){
-	std::cout << "Default Dog constructor called" << std::endl;
+	std::cout << "Dog default constructor called" << std::endl;
 	this->type = "Dog";
 	this->create_brain();
 }
@@ -29,5 +29,15 @@ Dog::~Dog()
 {
 	std::cout << "Dog was destroyed" << std::endl;
 	delete(this->brain);
+}
+
+void	Dog::makeSound(void) const
+{
+	if (this->type.empty())
+		std::cout << "*Animal sounds*" << std::endl;
+	else if (this->type == "Cat")
+		std::cout << "miaow" << std::endl;
+	else if (this->type == "Dog")
+		std::cout << "WOOF" << std::endl;
 }
 
