@@ -6,7 +6,7 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/11/08 10:31:04 by lslater          ###   ########.fr        #
+#    Updated: 2024/11/11 14:27:34 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = Animal.cpp \
 	   Cat.cpp	\
+	   WrongCat.cpp \
+	   WrongAnimal.cpp \
 	   Dog.cpp \
 	   main.cpp
 
