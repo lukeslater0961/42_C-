@@ -8,7 +8,7 @@ int	Fixed::getRawBits(void) const{return (_FPValue);}
 
 void	Fixed::setRawBits(int const raw){this->_FPValue = raw;}
 
-Fixed& Fixed::operator=(const Fixed& other)//copy assignment operator
+Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "copy assignment operator called" <<std::endl;
 	if (this == &other)
@@ -21,4 +21,4 @@ Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "copy constructor called" << std::endl;
 	*this = other;
-} //copy constructor
+}
