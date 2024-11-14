@@ -1,6 +1,10 @@
 
 #include "Zombie.hpp"
 
+Zombie::Zombie(){std::cout<<"zombie created"<<std::endl;}
+
+Zombie::~Zombie(){std::cout<< _name <<", Zombie destroyed"<<std::endl;}
+
 void	Zombie::setName(std::string name)
 {
 	_name = name;

@@ -13,29 +13,22 @@ int	parseArgs(char **argv)
 		error_mngment(EMPTY_ARG);
 		return (1);
 	}
-	for (std::string::iterator iter = str.begin(); iter != str.end(); iter++)
-	{
-		if (*iter == '.' && iter != str.begin() && iter != str.end() - 1)
-			return (0);
-	}
-	error_mngment(INVALID_FILE);
-	return (1);
+	return (0);
 }
 
-std::ifstream*	CheckAndOpen(char **argv)
+int	CheckAndOpen(std::ifstream &inFile)
 {
-	std::ifstream* inFile = new std::ifstream(argv[1], std::ios::in);
-	if (!*inFile)
+	if (!inFile)
 	{
-		delete(inFile);
+		inFile.close();
 		error_mngment(FILE_CANT_OPEN);
-		return (NULL);
+		return (1);
 	}
-	else if (inFile->peek() == std::ifstream::traits_type::eof())
+	else if (inFile.peek() == std::ifstream::traits_type::eof())
 	{
-		delete(inFile);
+		inFile.close();
 		error_mngment(FILE_EMPTY);
-		return (NULL);
+		return (1);
 	}
-	return (inFile);
+	return (0);
 }

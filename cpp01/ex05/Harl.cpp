@@ -28,6 +28,8 @@ void	Harl::complain(std::string level)
 	void	(Harl::*actions[])(void)= {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
+	if (level.empty())
+		return ;
 	for (unsigned int i = 0; i < (sizeof(levels) / sizeof(levels[0])) ;i++)
 	{
 		if (level == levels[i])

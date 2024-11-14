@@ -27,30 +27,28 @@ void	Harl::complain(std::string level)
 {
 	void	(Harl::*actions[])(void)= {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-	for (unsigned int i = 0; i < (sizeof(levels) / sizeof(levels[0])) ;i++)
+	int	i = 0;
+	for (; i < 4 ;i++)
 	{
 		if (level == levels[i])
-		{
-			switch (i) {
-				case 0 :
-					(this->*actions[0])();
-				case 1 :
-					(this->*actions[1])();
-				case 2 :
-					(this->*actions[2])();
-				case 3 :
-					{
-						(this->*actions[3])();
-						break;
-					}
+			break ;
+	}
+	switch (i) {
+		case 0 :
+			(this->*actions[0])();
+		case 1 :
+			(this->*actions[1])();
+		case 2 :
+			(this->*actions[2])();
+		case 3 :
+			{
+				(this->*actions[3])();
+				break;
 			}
-			break;
-		}
-		else
-		{
-			std::cout << "no matching level found" << std::endl;
-			break;
-		}
+		default :
+			{
+				std::cout << "invalid input" << std::endl;
+				break;
+			}
 	}
 }

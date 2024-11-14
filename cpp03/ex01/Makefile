@@ -6,7 +6,7 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/11/07 09:30:24 by lslater          ###   ########.fr        #
+#    Updated: 2024/11/14 09:15:05 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@ NC = \033[0m
 YELLOW = \033[1;33m
 RED = \033[0;31m
 PURPLE = \033[0;35m
-			this->_FPValue = other._FPValue;
-			this->_FPValue = other._FPValue;
 CYAN = \033[0;36m
 #______________________
 

@@ -15,7 +15,7 @@
 
 int				error_mngment(std::string errName);
 int				parseArgs(char **argv);
-std::ifstream*	CheckAndOpen(char **argv);
-void			do_sed(std::ifstream *inFile, std::string filename, std::string tofind, std::string inputstring);
+int             CheckAndOpen(std::ifstream &inFile);
+void			do_sed(std::ifstream& inFile, std::string filename, std::string tofind, std::string inputstring);
 
 #endif

@@ -8,9 +8,11 @@ int	main(int argc, char **argv)
 	{
 		if (parseArgs(argv))
 			return (1);
-		std::ifstream* inFile = CheckAndOpen(argv);
+		std::ifstream inFile(argv[1], std::ios::in);
+		if (CheckAndOpen(inFile))
+			return (1);
 		if (inFile)
 			do_sed(inFile, argv[1], argv[2], argv[3]);
-		delete(inFile);
+		inFile.close();
 	}
 }

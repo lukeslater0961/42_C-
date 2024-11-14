@@ -1,18 +1,18 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): Hitpoints(10), Energypoints(10), Attackdamage(0), Name("unknown"){std::cout << "default constructor called" << std::endl;};
-ClapTrap::ClapTrap(std::string name) : Hitpoints(10), Energypoints(10), Attackdamage(0), Name(name) {std::cout << Name << " was created" << std::endl;};
-ClapTrap::~ClapTrap(){std::cout<< Name << " was destroyed" << std::endl;};
+ClapTrap::ClapTrap(): Hitpoints(10), Energypoints(10), Attackdamage(0), Name("unknown"){std::cout << "default ClapTrap constructor called" << std::endl;};
+ClapTrap::ClapTrap(std::string name) : Hitpoints(10), Energypoints(10), Attackdamage(0), Name(name) {std::cout << "ClapTrap " << Name << " was created" << std::endl;};
+ClapTrap::~ClapTrap(){std::cout<< "ClapTrap " << Name << " was destroyed" << std::endl;};
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "copy assignment operator called" <<std::endl;
+	std::cout << " ClapTrap copy assignment operator called" <<std::endl;
 	if (this == &other)
 		return (*this);
 	this->Name = other.Name;
@@ -23,15 +23,15 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->Energypoints > 0 && this->Hitpoints > 0)
+	if (this->Energypoints <= 0)
+		std::cout << "ClapTrap " << this->Name << " has no Energypoints left " << std::endl;
+	else if (this->Hitpoints <= 0)
+		std::cout << "ClapTrap " << this->Name << " has no Hitpoints left " << std::endl;
+	else
 	{
 		this->Energypoints--;
 		std::cout << "ClapTrap " << this->Name << " attacked " << target << " causing " << this->Attackdamage << " points of damage! " << std::endl;
 	}
-	else if (this->Energypoints <= 0)
-		std::cout << "ClapTrap " << this->Name << " has no Energypoints left " << std::endl;
-	else if (this->Hitpoints <= 0)
-		std::cout << "ClapTrap " << this->Name << " has no Hitpoints left " << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/07/29 12:43:42 by bananabread      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 PROG_NAME = Zombie
 
 CC = c++
@@ -17,8 +5,6 @@ FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp\
        Zombie.cpp\
-       randomChump.cpp\
-       newZombie.cpp\
        zombieHorde.cpp
 
 

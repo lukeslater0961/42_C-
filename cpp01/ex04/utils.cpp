@@ -6,31 +6,27 @@ int	error_mngment(std::string errName)
 	return (1);
 }
 
-void	do_sed(std::ifstream *inFile, std::string filename, std::string tofind, std::string inputstring)
+void	do_sed(std::ifstream &inFile, std::string filename, std::string tofind, std::string inputstring)
 {
-	size_t index = filename.rfind('.');
-	filename.resize(filename.size() - index);
 	filename += ".replace";
-	std::ofstream tempfile("temp.tmp", std::ios::out);
-	tempfile << inFile->rdbuf() <<std::endl;
-	std::ifstream File("temp.tmp", std::ios::out);
 	std::ofstream outputFile(filename.c_str());
+	if (!outputFile)
+	{
+		error_mngment(FILE_CANT_OPEN);
+		return ;
+	}
 	std::string line;
-	while (std::getline(File, line))
+	while (std::getline(inFile, line))
 	{
 		size_t	pos = 0;
 		pos = line.find(tofind);
-		std::cout<< tofind.length() << std::endl;
-		
 		while (pos != std::string::npos)
 		{
 			line.erase(pos, tofind.length());
 			line.insert(pos, inputstring);
-			pos = line.find(tofind);
+			pos = line.find(tofind, pos + inputstring.length());
 		}
 		outputFile << line <<std::endl;
 	}
-	remove("temp.tmp");
-	File.close();
 	outputFile.close();
 }

@@ -53,6 +53,11 @@ bool Fixed::operator!=(const Fixed& other) const
 	return (this->getRawBits() != other.getRawBits());
 }
 
+bool Fixed::operator==(const Fixed& other) const
+{
+	return (this->getRawBits() == other.getRawBits());
+}
+
 float	Fixed::operator*(const Fixed& other)
 {
 	return (this->toFloat() * other.toFloat());
@@ -118,6 +123,7 @@ const Fixed&	Fixed::min(const Fixed& num1, const Fixed& num2)
 {
 	return ((num1 < num2) ? num1 : num2);
 }
+
 int		Fixed::toInt(void) const{return (_FPValue >> _numBits);}
 int		Fixed::getRawBits(void) const{return (_FPValue);}
 void	Fixed::setRawBits(int const raw){this->_FPValue = raw;}
