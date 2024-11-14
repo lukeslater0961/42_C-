@@ -10,6 +10,7 @@ int	main(void)
 	ScavTrap	thomas("thomas");
 	FragTrap	remi("remi");
 	remi.highFivesGuys();
+	remi.attack("general kenobi");
 	thomas.attack("fart");
 	for (int i = 0; i < 9; i++)
 		luke.beRepaired(1);
