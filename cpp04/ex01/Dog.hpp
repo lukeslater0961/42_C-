@@ -10,6 +10,7 @@ class	Dog : public Animal{
 		Dog(const Dog& other);
 		Dog& operator=(const Dog& other);
 
+		void	makeSound(void) const;
 		void	create_brain(void);
 		Brain*	get_brain(void) const;
 		~Dog();

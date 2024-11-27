@@ -18,8 +18,12 @@ Cat& Cat::operator=(const Cat& other)
 	if (this == &other)
 		return (*this);
 	this->type = other.getType();
-	this->brain = other.get_brain();
 	return (*this);
+}
+
+void	Cat::makeSound(void) const
+{
+	std::cout << "Mew" << std::endl;
 }
 
 void	Cat::create_brain(void){this->brain = new Brain();}

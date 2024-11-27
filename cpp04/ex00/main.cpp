@@ -21,5 +21,6 @@ int main()
 	delete(j);
 	delete(i);
 	delete(meta);
+	delete(k);
 	return (0);
 }

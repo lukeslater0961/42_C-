@@ -18,7 +18,6 @@ Cat& Cat::operator=(const Cat& other)
 	if (this == &other)
 		return (*this);
 	this->type = other.getType();
-	this->brain = other.get_brain();
 	return (*this);
 }
 
@@ -33,11 +32,6 @@ Cat::~Cat()
 
 void	Cat::makeSound(void) const
 {
-	if (this->type.empty())
-		std::cout << "*Animal sounds*" << std::endl;
-	else if (this->type == "Cat")
-		std::cout << "miaow" << std::endl;
-	else if (this->type == "Dog")
-		std::cout << "WOOF" << std::endl;
+	std::cout << "Mew" << std::endl;
 }
 

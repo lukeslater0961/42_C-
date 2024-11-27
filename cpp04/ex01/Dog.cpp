@@ -9,6 +9,7 @@ Dog::Dog(){
 Dog::Dog(const Dog& other)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
+	this->create_brain();
 	*this = other;
 }
 
@@ -18,8 +19,12 @@ Dog& Dog::operator=(const Dog& other)
 	if (this == &other)
 		return (*this);
 	this->type = other.getType();
-	this->brain = other.get_brain();
 	return (*this);
+}
+
+void	Dog::makeSound(void) const
+{
+	std::cout << "Woof" << std::endl;
 }
 
 void	Dog::create_brain(void){this->brain = new Brain();}

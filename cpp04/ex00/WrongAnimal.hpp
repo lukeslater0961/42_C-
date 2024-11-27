@@ -12,7 +12,7 @@ class	WrongAnimal{
 		
 		std::string	getType(void) const;
 		void		setType(std::string Type);
-		virtual void		makeSound(void) const;
+		void		makeSound(void) const;
 		virtual	~WrongAnimal();
 	protected:
 		std::string type;

@@ -10,9 +10,11 @@ int main()
     for (int k = 0; k < ARRAY_SIZE / 2; ++k) {
         animals[k] = new Dog();
     }
+
     for (int k = ARRAY_SIZE / 2; k < ARRAY_SIZE; ++k) {
         animals[k] = new Cat();
     }
+
     for (int k = 0; k < ARRAY_SIZE; ++k) {
         std::cout << animals[k]->getType() << " ";
         animals[k]->makeSound();
@@ -21,6 +23,6 @@ int main()
     for (int k = 0; k < ARRAY_SIZE; ++k) {
         delete animals[k];
     }
-
+//	 Animal hello;
     return 0;
 }

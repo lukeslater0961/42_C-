@@ -20,5 +20,10 @@ Cat& Cat::operator=(const Cat& other)
 	return (*this);
 }
 
+void	Cat::makeSound(void) const
+{
+	std::cout << "miaow" << std::endl;
+}
+
 Cat::~Cat(){std::cout << "Cat was destroyed" << std::endl;}
 

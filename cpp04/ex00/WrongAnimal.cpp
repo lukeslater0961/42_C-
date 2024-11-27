@@ -23,12 +23,7 @@ void	WrongAnimal::setType(std::string Type){this->type = Type;}
 
 void	WrongAnimal::makeSound(void) const
 {
-	if (this->type.empty())
-		std::cout << "*WrongAnimal sounds*" << std::endl;
-	else if (this->type == "WrongCat")
-		std::cout << "Wrongmiaow" << std::endl;
-	else if (this->type == "Dog")
-		std::cout << "WrongWOOF" << std::endl;
+	std::cout << "*WrongAnimal sounds*" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(){std::cout << "WrongAnimal was destroyed" << std::endl;}

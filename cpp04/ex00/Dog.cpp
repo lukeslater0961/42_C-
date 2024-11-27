@@ -11,6 +11,11 @@ Dog::Dog(const Dog& other)
 	*this = other;
 }
 
+void	Dog::makeSound(void) const
+{
+	std::cout << "Woof" << std::endl;
+}
+
 Dog& Dog::operator=(const Dog& other)
 {
 	std::cout << "Dog assigment operator called" << std::endl;

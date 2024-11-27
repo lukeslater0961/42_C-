@@ -8,7 +8,7 @@ class	WrongCat : public WrongAnimal{
 		WrongCat();
 		WrongCat(const WrongCat& other);
 		WrongCat& operator=(const WrongCat& other);
-
+		void	MakeSound(void) const;
 		~WrongCat();
 };
 

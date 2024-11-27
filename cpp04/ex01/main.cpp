@@ -4,26 +4,10 @@
 
 int main()
 {
-	/*
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	delete(j);
-	delete(i);
-	delete(meta);
-	return (0);*/
-
 	const int ARRAY_SIZE = 10;
 	const Animal* animals[ARRAY_SIZE];
 
-    for (int k = 0; k < ARRAY_SIZE / 2; ++k) {
+	for (int k = 0; k < ARRAY_SIZE / 2; ++k) {
         animals[k] = new Dog();
     }
     for (int k = ARRAY_SIZE / 2; k < ARRAY_SIZE; ++k) {
@@ -38,5 +22,12 @@ int main()
         delete animals[k];
     }
 
-    return 0;
+	/*Dog basic;
+
+	{
+
+		Dog tmp = basic;
+
+	}*/
+   return 0;
 }
