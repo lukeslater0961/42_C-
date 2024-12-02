@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat(){}
 
@@ -57,4 +59,16 @@ void	Bureaucrat::IncrementGrade(void)
 		throw(TooHighException());
 	else
 		this->_grade--;
+}
+
+
+void	Bureaucrat::signForm(Form& form)
+{
+   try {
+        form.BeSigned(*this);  // Call the Form's BeSigned function
+        std::cout << this->GetName() << " signed " << form.GetName() << std::endl;
+    } 
+   catch (const Form::TooLowException& e) {
+        std::cout << this->GetName() << " couldn't sign " << form.GetName() << " because: " << e.what() << std::endl;
+    }
 }
