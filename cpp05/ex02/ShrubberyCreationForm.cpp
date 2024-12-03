@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm(145, 135), _target("NULL"){}
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm(145, 135), _target(target){}
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 135), _target("NULL"){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 135), _target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other): AForm(other)
 {
@@ -19,34 +19,46 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){};
 
+void	CopyShrubbery(std::ofstream& outputFile)
+{
+		outputFile << "                     .o00o" << std::endl;
+		outputFile << "                   o0NI000oo" << std::endl;
+		outputFile << "                  000000NI0000o" << std::endl;
+		outputFile << "                 000000000NI0000" << std::endl;
+		outputFile << "              oooooo  00000000  o88o" << std::endl;
+		outputFile << "           ooOOOOOOOoo  ```''  888888" << std::endl;
+		outputFile << "         OOOOONIOOOOO'.qQQQQq. `8888'" << std::endl;
+		outputFile << "        NIOOOOOONIO'.QNIQNIQQQQ/.88'" << std::endl;
+		outputFile << "        OOOONIOOOO'.NIQQNIQQQQ/ /q" << std::endl;
+		outputFile << "         ONIOONIOO QQQQQQQNIQ/ /QQ" << std::endl;
+		outputFile << "           OOOOOOOOO `NIQQNI/ /QQ'" << std::endl;
+		outputFile << "             OO:F_P:O `QQQ/  /Q'" << std::endl;
+		outputFile << "                \\. \\ |  // |" << std::endl;
+		outputFile << "                d\\ \\\\|_////" << std::endl; 
+		outputFile << "                qP| \\ _' `|Ob" << std::endl;
+		outputFile << "                   \\  / \\  \\Op" << std::endl;
+		outputFile << "                   |  | O| |" << std::endl;
+		outputFile << "           _       /\\. \\_/ /\"" << std::endl;
+		outputFile << "           `---__/|_\\   //|" << std::endl;
+		outputFile << "                  `-'  `-'`-'-'" << std::endl;
+}
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.GetGrade() > this->GetGradeToExec())
-	{
+	if (this->GetIsSigned() != 1)
+		throw(FormNotSignedException());
+	else if (executor.GetGrade() > this->GetGradeToExec())
 		throw(TooLowException());	
-	}
 	else
 	{
-		std::cout << "                     .o00o"<< std::endl;
-		std::cout << "                   o0NI000oo"<< std::endl;
-		std::cout << "                  000000NI0000o" << std::endl;
-		std::cout << "                 000000000NI0000" << std::endl;
-		std::cout << "              oooooo  00000000  o88o" << std::endl;
-		std::cout << "           ooOOOOOOOoo  ```''  888888" << std::endl;
-		std::cout << "         OOOOONIOOOOO'.qQQQQq. `8888'" << std::endl;
-		std::cout << "        NIOOOOOONIO'.QNIQNIQQQQ/.88'" << std::endl;
-		std::cout << "        OOOONIOOOO'.NIQQNIQQQQ/ /q" << std::endl;
-		std::cout << "         ONIOONIOO QQQQQQQNIQ/ /QQ" << std::endl;
-		std::cout << "           OOOOOOOOO `NIQQNI/ /QQ'" << std::endl;
-		std::cout << "             OO:F_P:O `QQQ/  /Q'" << std::endl;
-		std::cout << "                \\. \ |  // |" << std::endl;
-		std::cout << "                d\ \\\|_////" << std::endl;
-		std::cout << "                qP| \\ _' `|Ob" << std::endl;
-		std::cout << "                   \  / \  \Op" << std::endl;
-		std::cout << "                   |  | O| |" << std::endl;
-		std::cout << "           _       /\. \_/ /\"" << std::endl;
-		std::cout << "           `---__/|_\\   //|" << std::endl;
-		std::cout << "                  `-'  `-'`-'-'" << std::endl;
-
+		std::string filename = this->_target +"_shrubbery";
+		std::ofstream outputFile(filename.c_str());
+		if (!outputFile)
+		{
+			std::cout << "can't open file"<< std::endl;
+			return ;
+		}
+		CopyShrubbery(outputFile);
+		outputFile.close();
 	}
 }
+

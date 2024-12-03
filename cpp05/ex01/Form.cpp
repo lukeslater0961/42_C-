@@ -21,6 +21,11 @@ Form::Form(std::string name , int gradeToSign, int gradeToExec): _name(name), _g
 		this->_isSigned = false;
 }
 
+Form::Form(const Form& other): _gradeToExec(other.GetGradeToExec()), _gradeToSign(other.GetGradeToSign())
+{
+	*this = other;
+}
+
 Form& Form::operator=(const Form& other)
 {
 	if (this == &other)

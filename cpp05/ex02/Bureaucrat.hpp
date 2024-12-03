@@ -22,6 +22,7 @@ class	Bureaucrat
 	
 		void	signForm(AForm& form);
 
+		void	executeForm(AForm& form);
 		class TooHighException
 		{
 			public:

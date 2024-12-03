@@ -1,16 +1,28 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 int	main(void)
 {
 	try{
-		Bureaucrat john("ford", 150);
-		AForm	Johnny("johnson", 150, 150);
+		Bureaucrat john("ford", 1);
+		AForm*	form = new RobotomyRequestForm("barnabebew");
+		AForm*	form2 = new PresidentialPardonForm("luke");
+		AForm*	form3 = new ShrubberyCreationForm("KNIGHTS OF NI");
+		std::cout << *form3;
+		john.executeForm(*form2);
+		john.signForm(*form3);
+		john.executeForm(*form3);
+		john.signForm(*form);
+		john.executeForm(*form);
+		std::cout << *form3;
 		std::cout << john << std::endl;
-		std::cout << Johnny << std::endl;
-		john.signForm(Johnny);
-		std::cout << Johnny << std::endl;
+		delete(form);
+		delete(form2);
+		delete(form3);
 	}
 	catch(Bureaucrat::TooLowException& e){
 		std::cout << e.what() << std::endl;

@@ -21,6 +21,11 @@ AForm::AForm(std::string name , int gradeToSign, int gradeToExec): _name(name), 
 		this->_isSigned = false;
 }
 
+AForm::AForm(const AForm& other): _gradeToExec(other.GetGradeToExec()), _gradeToSign(other.GetGradeToSign())
+{
+	*this = other;
+}
+
 AForm& AForm::operator=(const AForm& other)
 {
 	if (this == &other)
@@ -63,5 +68,5 @@ const char* AForm::TooHighException::what() const throw() {
 }
 
 const char* AForm::FormNotSignedException::what() const throw() {
-    return "Form is not signed";
+    return " is not signed";
 }

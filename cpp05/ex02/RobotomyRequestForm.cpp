@@ -1,8 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm(72, 45), _target("NULL"){}
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm(72, 45), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), _target("NULL"){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target){}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other): AForm(other)
 {
@@ -21,5 +21,18 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-
+	if (this->GetIsSigned() != 1)
+		throw(FormNotSignedException());
+	else if (executor.GetGrade() > this->GetGradeToExec())
+		throw(TooLowException());	
+	else
+	{
+		std::cout << "*Drilling sounds*" << std::endl;
+		srand(time(0));
+        int isFailed = rand() % 2;
+		if (!isFailed)
+			std::cout << this->_target << " has been successfully Robotomyzed ! " << std::endl;
+		else
+			std::cout << "Robotomy failed" << std::endl;
+	}
 }

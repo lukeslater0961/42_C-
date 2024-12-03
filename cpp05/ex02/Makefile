@@ -6,17 +6,20 @@
 #    By: bananabread <bananabread@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 13:20:50 by lslater           #+#    #+#              #
-#    Updated: 2024/12/02 14:33:45 by lslater          ###   ########.fr        #
+#    Updated: 2024/12/03 11:12:10 by lslater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PROG_NAME = ex01
+PROG_NAME = ex02
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp \
 	   AForm.cpp \
+	   PresidentialPardonForm.cpp\
+	   ShrubberyCreationForm.cpp\
+	   RobotomyRequestForm.cpp\
 	   Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
@@ -39,7 +42,7 @@ define SUCCESS_MESSAGE
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex01 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex02 cleaned successfully!\n"
 endef
 #__________________
 
