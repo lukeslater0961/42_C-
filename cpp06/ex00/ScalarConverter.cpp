@@ -16,7 +16,7 @@ bool	FDErrorCheck(std::string literal)
 
 	if (literal.length() > 0 && literal[literal.length() - 1] == 'f')
 		literal[literal.length() - 1] = '\0'; 
-	if (literal[0] == '.')
+	if (literal[0] == '.' || ((literal[0] ==  '+' || literal[0] == '-') && literal[1] == '.'))
 		return (ErrorMngment(SYNTAX));
 	else if (std::strchr(dotPos, '.') != NULL)
 		return (ErrorMngment(DOTS));
@@ -41,14 +41,23 @@ bool	ErrorCheck(std::string literal)
 
 bool	CheckSpecialFloat(std::string literal)
 {
-
+	if (std::strchr(literal.c_str(), '.') != NULL)
+		return (ErrorMngment(SYNTAX));
 	return (false);
 }
 
+
+
 bool	CheckForErrors(std::string literal)
 {
+	size_t startIndex = 0;
+
 	if (literal.empty())
 		return (ErrorMngment(EMPTY));
+	if (literal[startIndex] == '+' || literal[startIndex] == '-')
+		startIndex = 1; 
+	if (startIndex < literal.length() && (literal[startIndex] == '+' || literal[startIndex] == '-'))
+		return (ErrorMngment(SYNTAX));
 	if (literal.find("inf") != std::string::npos || literal.find("nan") != std::string::npos)
 		return (CheckSpecialFloat(literal));
 	else if (std::strchr(literal.c_str(), '.') != NULL)
