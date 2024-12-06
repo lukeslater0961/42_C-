@@ -7,11 +7,15 @@
 #include <cstring>  
 #include <iostream> 
 #include <errno.h>
+#include <iomanip>
+#include <climits>
 
 class	ScalarConverter{
 	public:
 
 		static void	convert(std::string literal);
+		static void	ConvertChar(std::string literal);
+		static void	ConvertInt(double value);
 
 	private:
 		ScalarConverter();
