@@ -15,7 +15,10 @@ class	ScalarConverter{
 
 		static void	convert(std::string literal);
 		static void	ConvertChar(std::string literal);
-		static void	ConvertInt(double value);
+		static void	ConvertInt(std::string literal);
+		static void	ConvertFloat(std::string literal);
+		static void	ConvertDouble(std::string literal);
+
 
 	private:
 		ScalarConverter();

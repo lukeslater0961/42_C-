@@ -39,9 +39,28 @@ bool	ErrorCheck(std::string literal)
 	return (false);
 }
 
+bool CheckSpecialCases(std::string literal)
+{
+	if (literal == "inf" || 
+			literal == "inff"||
+			literal == "nan" ||
+			literal == "-inf" || 
+			literal == "-inff"||
+			literal == "-nan")
+		return (true);
+	return (false);
+}
+
 bool	CheckSpecialFloat(std::string literal)
 {
+	char *ptr = NULL;
 	if (std::strchr(literal.c_str(), '.') != NULL)
+		return (ErrorMngment(SYNTAX));
+	std::strtof(literal.c_str(), &ptr);
+	std::cout << ptr;
+	if (CheckSpecialCases(literal))
+        return (false);
+	else if (*ptr)
 		return (ErrorMngment(SYNTAX));
 	return (false);
 }
@@ -56,6 +75,8 @@ bool	CheckForErrors(std::string literal)
 		startIndex = 1; 
 	if (startIndex < literal.length() && (literal[startIndex] == '+' || literal[startIndex] == '-'))
 		return (ErrorMngment(SYNTAX));
+	if (startIndex == 1)
+		literal.erase(0, 1);
 	if (literal.find("inf") != std::string::npos || literal.find("nan") != std::string::npos)
 		return (CheckSpecialFloat(literal));
 	else if (std::strchr(literal.c_str(), '.') != NULL)
@@ -64,35 +85,97 @@ bool	CheckForErrors(std::string literal)
 		return (ErrorCheck(literal));
 }
 
-void	TypeConvert(std::string literal)
+void	DoNan(std::string literal)
 {
 	double value = std::strtod(literal.c_str(), NULL); 
-	
-	ScalarConverter::ConvertChar(literal);
-	ScalarConverter::ConvertInt(value);
-	std::cout << std::fixed<< std::setprecision(1)<< static_cast<float>(value) << "f" <<std::endl;
-	std::cout << std::fixed<< std::setprecision(1) << static_cast<double>(value);
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (literal != "-inf" && 
+			literal != "-inff" &&
+			literal != "-nan")
+	{
+		std::cout << std::fixed<< std::setprecision(1)<< "+" << static_cast<float>(value) << "f" <<std::endl;
+		std::cout << std::fixed<< std::setprecision(1) << "+" << static_cast<double>(value);
+	}
+	else
+	{
+		std::cout << std::fixed<< std::setprecision(1)<< static_cast<float>(value) << "f" <<std::endl;
+		std::cout << std::fixed<< std::setprecision(1) << static_cast<double>(value);
+	}
+
 }
 
-void	ScalarConverter::ConvertInt(double value)
+void	ScalarConverter::ConvertDouble(std::string literal)
 {
-	if (static_cast<int>(value) == INT_MIN)
-		std::cout << "int: impossible"  << std::endl;
+	if (std::isalpha(literal[0]))
+		std::cout << "double: " << std::fixed << std::setprecision(1)<< static_cast<double>(literal[0]) <<std::endl;
 	else
+	{
+
+		double value = std::strtod(literal.c_str(), NULL);
+		std::cout << "double: " << std::fixed << std::setprecision(1)<< static_cast<double>(value) <<std::endl;
+	}
+}
+
+void	ScalarConverter::ConvertFloat(std::string literal)
+{
+	if (std::isalpha(literal[0]))
+		std::cout << "float: " << std::fixed << std::setprecision(1)<< static_cast<float>(literal[0]) << "f" <<std::endl;
+	else
+	{
+
+		double value = std::strtod(literal.c_str(), NULL);
+		std::cout << "float: " << std::fixed << std::setprecision(1)<< static_cast<float>(value) << "f" <<std::endl;
+	}
+}
+
+void	ScalarConverter::ConvertInt(std::string literal)
+{
+	if (std::isalpha(literal[0]))
+		std::cout << "int: " << static_cast<int>(literal[0]) << std::endl;
+	else
+	{
+
+		double value = std::strtod(literal.c_str(), NULL);
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	}
 }
 
 void	ScalarConverter::ConvertChar(std::string literal)
 {
-	if (literal.length() == 1 && std::isalpha(literal[0]))
+	if (literal.length() == 1 && std::isalpha(literal[0]) && isprint(literal[0]))
 		std::cout << "char:" << static_cast<char>(literal[0]) << std::endl;
 	else
 	{
-		if (!std::strcmp(literal.c_str(), "nan") || !std::strncmp(literal.c_str(), "inf", 4))
-			std::cout << "char: " << "impossible" << std::endl;
-		else{
-			double value = std::strtod(literal.c_str(), NULL);
+		double value = std::strtod(literal.c_str(), NULL);
+		if (!isprint(static_cast<char>(value)))
+			std::cout << "char: impossible" << std::endl;
+		else
 			std::cout << "char: " << static_cast<char>(value) << std::endl;
+	}
+}
+
+
+void	TypeConvert(std::string literal)
+{
+	if (CheckSpecialCases(literal))
+		DoNan(literal);
+	else
+	{
+		double value = std::strtod(literal.c_str(), NULL); 
+		if (literal.length() > 10 && (value >= 2147483647 || value <= -2147483648))
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << std::fixed<< std::setprecision(1) << static_cast<double>(value);
+		}
+		else
+		{
+			ScalarConverter::ConvertChar(literal);
+			ScalarConverter::ConvertInt(literal);
+			ScalarConverter::ConvertFloat(literal);
+			ScalarConverter::ConvertDouble(literal);
 		}
 	}
 }
