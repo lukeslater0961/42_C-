@@ -4,7 +4,6 @@
 
 #include "Data.hpp"
 #include <stdint.h>
-#include <cstdint>
 
 class Serializer
 {
