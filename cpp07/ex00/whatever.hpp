@@ -4,7 +4,7 @@
 #include <utility>
 
 template <typename T>
-T	swap(T num1, T num2)
+void swap(T &num1, T &num2)
 {
 	std::swap(num1, num2);
 }
