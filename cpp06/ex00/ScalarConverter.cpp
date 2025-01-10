@@ -23,12 +23,14 @@ bool	FDErrorCheck(std::string literal)
     std::strtod(literal.c_str(), &ptr);
 	if (*ptr)
 		return (ErrorMngment(SYNTAX));
+	else if (!(dotPos[0] >= '0' && dotPos[0] <= '9'))
+		return (ErrorMngment(SYNTAX));
 	return (false);
 }
 
 bool	ErrorCheck(std::string literal)
 {
-	if (literal.length() == 1 && std::isalpha(literal[0]))
+	if (literal.length() == 1 && (std::isalpha(literal[0]) || std::isprint(literal[0])))
 		return (false);
 	else if (literal.length() > 1 && std::isalpha(literal[0]))
 		return (ErrorMngment(SYNTAX));
@@ -44,6 +46,7 @@ bool CheckSpecialCases(std::string literal)
 	if (literal == "inf" || 
 			literal == "inff"||
 			literal == "nan" ||
+			literal == "nanf" ||
 			literal == "-inf" || 
 			literal == "-inff"||
 			literal == "-nan")
@@ -94,20 +97,20 @@ void	DoNan(std::string literal)
 			literal != "-inff" &&
 			literal != "-nan")
 	{
-		std::cout << std::fixed<< std::setprecision(1)<< "+" << static_cast<float>(value) << "f" <<std::endl;
-		std::cout << std::fixed<< std::setprecision(1) << "+" << static_cast<double>(value);
+		std::cout  << "float: " << std::fixed<< std::setprecision(1)<< "+" << static_cast<float>(value) << "f" <<std::endl;
+		std::cout  << "double: "<< std::fixed<< std::setprecision(1) << "+" << static_cast<double>(value);
 	}
 	else
 	{
-		std::cout << std::fixed<< std::setprecision(1)<< static_cast<float>(value) << "f" <<std::endl;
-		std::cout << std::fixed<< std::setprecision(1) << static_cast<double>(value);
+		std::cout  << "float: " << std::fixed<< std::setprecision(1)<< static_cast<float>(value) << "f" <<std::endl;
+		std::cout  << "double: "<< std::fixed<< std::setprecision(1) << static_cast<double>(value);
 	}
 
 }
 
 void	ScalarConverter::ConvertDouble(std::string literal)
 {
-	if (std::isalpha(literal[0]))
+	if (literal.length() == 1 && (std::isalpha(literal[0]) || isprint(literal[0])))
 		std::cout << "double: " << std::fixed << std::setprecision(1)<< static_cast<double>(literal[0]) <<std::endl;
 	else
 	{
@@ -119,7 +122,7 @@ void	ScalarConverter::ConvertDouble(std::string literal)
 
 void	ScalarConverter::ConvertFloat(std::string literal)
 {
-	if (std::isalpha(literal[0]))
+	if (literal.length() == 1 && (std::isalpha(literal[0]) || isprint(literal[0])))
 		std::cout << "float: " << std::fixed << std::setprecision(1)<< static_cast<float>(literal[0]) << "f" <<std::endl;
 	else
 	{
@@ -131,7 +134,7 @@ void	ScalarConverter::ConvertFloat(std::string literal)
 
 void	ScalarConverter::ConvertInt(std::string literal)
 {
-	if (std::isalpha(literal[0]))
+	if (literal.length() == 1 && (std::isalpha(literal[0]) || isprint(literal[0])))
 		std::cout << "int: " << static_cast<int>(literal[0]) << std::endl;
 	else
 	{
@@ -143,7 +146,7 @@ void	ScalarConverter::ConvertInt(std::string literal)
 
 void	ScalarConverter::ConvertChar(std::string literal)
 {
-	if (literal.length() == 1 && std::isalpha(literal[0]) && isprint(literal[0]))
+	if (literal.length() == 1 && (std::isalpha(literal[0]) || isprint(literal[0])))
 		std::cout << "char:" << static_cast<char>(literal[0]) << std::endl;
 	else
 	{
@@ -168,7 +171,7 @@ void	TypeConvert(std::string literal)
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
 			std::cout << "float: impossible" << std::endl;
-			std::cout << std::fixed<< std::setprecision(1) << static_cast<double>(value);
+			std::cout << "double: "<< std::fixed<< std::setprecision(1) << static_cast<double>(value);
 		}
 		else
 		{

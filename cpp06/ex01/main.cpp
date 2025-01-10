@@ -28,4 +28,6 @@ int main()
     // Test 3: Ensure the deserialized null pointer is still null.
     assert(nullDeserialized == NULL);
     std::cout << "Test 3 passed: Null pointer serialization and deserialization work." << std::endl;
+
+	delete hello;
 }
