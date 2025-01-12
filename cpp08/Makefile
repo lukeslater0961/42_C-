@@ -1,4 +1,4 @@
-PROG_NAME = ex01
+PROG_NAME = ex00
 
 CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
@@ -19,13 +19,15 @@ CYAN = \033[0;36m
 bold := $(shell tput bold)
 notbold := $(shell tput sgr0)
 
+EXNBR = ex00
+
 #_____MESSAGES_____
 define SUCCESS_MESSAGE
 	@printf "\r${GREEN}$(bold)[$@ built successfully!]${NC}\n"
 endef
 
 define CLEANING_SUCCESS
-	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)ex01 cleaned successfully!\n"
+	@printf "\r${RED}$(bold)[🧹]${NC}$(bold)${EXNBR}cleaned successfully!\n"
 endef
 #__________________
 
