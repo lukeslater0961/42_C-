@@ -8,7 +8,7 @@ template <class T>
 class Array{
 	public:
 	
-		Array():_array(NULL),  _size(0){};
+		Array() : _array(NULL), _size(0) {}
 		Array(unsigned int n)
 		{
 			_array = new T[n];
@@ -23,6 +23,23 @@ class Array{
 				for (unsigned int i = 0; i < _size; i++)
 					_array[i] = other._array[i];
 			}
+		}
+
+		Array &operator=(const Array& other)
+		{
+			if (this == &other)
+            	return *this;
+
+			this->_size = other._size;
+			if (_array != NULL)
+				delete[] _array;
+			if (_size > 0)
+			{
+				_array = new T[_size];
+				for (unsigned int i = 0; i < _size; i++)
+					_array[i] = other._array[i];
+			}
+			return *this;
 		}
 
 		class OutofBoundException

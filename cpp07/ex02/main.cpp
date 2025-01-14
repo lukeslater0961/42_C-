@@ -6,6 +6,9 @@ int main( void )
 	try {
         Array<int> defaultArray;
         std::cout << "Default array size: " << defaultArray.size() << std::endl;
+        Array<int> defaultArray2;
+         defaultArray2 = defaultArray;
+        std::cout << "assigning default arrays = default array2 size = " << defaultArray2.size()  <<std::endl;
 
         Array<int> arrayWithSize(5);
         std::cout << "Array with size 5 initialized." << std::endl;
@@ -54,6 +57,45 @@ int main( void )
         std::cout << stringArray[5] << std::endl;
 
     } catch (const Array<std::string>::OutofBoundException &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    try {
+        Array<int> array1(5);
+        for (unsigned int i = 0; i < array1.size(); ++i) {
+            array1[i] = i * 2;
+        }
+
+        std::cout << "Array 1 elements: ";
+        for (unsigned int i = 0; i < array1.size(); ++i) {
+            std::cout << array1[i] << " ";
+        }
+        std::cout << std::endl;
+
+        Array<int> array2;
+        array2 = array1;
+
+        std::cout << "Array 2 (after assignment) elements: ";
+        for (unsigned int i = 0; i < array2.size(); ++i) {
+            std::cout << array2[i] << " ";
+        }
+        std::cout << std::endl;
+
+        array2[0] = 100;
+        std::cout << "Array 2 after modification: ";
+        for (unsigned int i = 0; i < array2.size(); ++i) {
+            std::cout << array2[i] << " ";
+        }
+        std::cout << std::endl;
+
+        std::cout << "Array 1 (should remain unchanged): ";
+        for (unsigned int i = 0; i < array1.size(); ++i) {
+            std::cout << array1[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Checking out of bounds..." << std::endl;
+        std::cout << array1[13] << std::endl;
+    } catch (const Array<int>::OutofBoundException &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
