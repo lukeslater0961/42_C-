@@ -47,3 +47,19 @@ int Span::longestSpan(void)
     }
     return 1;
 }
+
+int Span::shortestSpan(void)
+{
+    try{
+        if (this->_numList.size() <= 1)
+            throw(NOSPANEXCEPTION());
+
+        std::sort(this->_numList.begin(), this->_numList.end());
+        return this->_numList[1] - this->_numList[0];
+    }
+    catch(NOSPANEXCEPTION& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    return 1;
+}

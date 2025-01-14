@@ -13,6 +13,12 @@ class Span{
         ~Span();
 
         void    addNumber(int num);
+        template <typename Iterator>
+        void addMultipleNumbers(Iterator begin, Iterator end) {
+            std::cout << "Adding numbers..." << std::endl;
+            for (Iterator it = begin; it != end; ++it)
+                addNumber(*it);
+        }
         int     shortestSpan();
         int     longestSpan();
 
