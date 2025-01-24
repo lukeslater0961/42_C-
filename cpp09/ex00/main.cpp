@@ -8,10 +8,9 @@ int checkValues(std::ifstream &inFile)
     std::getline(inFile, firstLine);
     while(std::getline(inFile, date, '|') && std::getline(inFile, value))
     {
-        std::cout << date << " hehe" <<std::endl;
         // checkDate(date);
-        std::cout << value << " hehe"<< std::endl;
         checkValue(value);
+        Bitcoin bitcoin;
     }
     return(0);
 }

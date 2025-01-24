@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
@@ -6,10 +5,19 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 
 # define CANT_OPEN "Can't open file"
 # define FILE_EMPTY "File is empty"
-std::map<int, std::string> bitcoin;
+
+
+struct Bitcoin{
+
+    Bitcoin();
+
+    std::map<std::string, float> bitcoin;
+};
+
 void    checkValue(std::string value);
 
 #endif
