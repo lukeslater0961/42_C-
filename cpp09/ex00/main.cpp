@@ -21,7 +21,8 @@ int checkValues(std::ifstream &inFile)
             
             BitcoinData bitcoin;
             checkDate(datePart, &bitcoin);
-            checkValue(valuePart, &bitcoin);
+            if (checkValue(valuePart, &bitcoin))
+                continue;
             printValues(&bitcoin);
         }
         else

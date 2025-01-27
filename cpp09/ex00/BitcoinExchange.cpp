@@ -57,23 +57,33 @@ void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
 }
 
 
-void    checkValue(std::string value, BitcoinData *bitcoindata)
+int   checkValue(std::string value, BitcoinData *bitcoindata)
 {
     char *garbage;
     if (value.empty())
     {
         std::cerr << "Error: Missing value " << std::endl;
-        return ;
+        return (1);
     }
     float num = std::strtof(value.c_str(), &garbage);
 
     if (garbage[0])
+    {
         std::cerr << "Error: invalid value= " << value << std::endl;
+        return (1);
+    }
     else if (!(num >= 0))
+    {
         std::cerr << "Error: not a positive number" << std::endl;
+        return (1);
+    }
     else if (!(num <= 1000))
+    {
         std::cerr << "Error: too large a number" << std::endl;
+        return (1);
+    }
     bitcoindata->currentValue = num;
+    return (0);
 }
 
 void    printValues(BitcoinData *bitcoindata)
