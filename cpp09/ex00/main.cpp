@@ -18,10 +18,11 @@ int checkValues(std::ifstream &inFile)
             datePart.erase(datePart.find_last_not_of(" \t") + 1);
             valuePart.erase(0, valuePart.find_first_not_of(" \t"));
             valuePart.erase(valuePart.find_last_not_of(" \t") + 1);
-
-            checkDate(datePart);
-            checkValue(valuePart);
-            Bitcoin bitcoin;
+            
+            BitcoinData bitcoin;
+            checkDate(datePart, &bitcoin);
+            checkValue(valuePart, &bitcoin);
+            printValues(&bitcoin);
         }
         else
             std::cerr << "Error: " << INV_FORMAT  << " => " << date << std::endl;
@@ -52,7 +53,7 @@ int parseFile(std::string filename)
 int main(int argc, char **argv)
 {
     if (argc != 2)
-        std::cerr << "invalid number of arguments" << std::endl;
+        std::cerr << "Error: invalid number of arguments" << std::endl;
     else
         parseFile(static_cast<std::string>(argv[1]));
 }

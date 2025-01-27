@@ -7,21 +7,25 @@
 #include <sstream>
 #include <cstdlib>
 #include <cstring>
-#include <string>
 
 # define CANT_OPEN "Can't open file"
 # define FILE_EMPTY "File is empty"
 # define INV_FORMAT "Invalid format"
 # define NON_EXIST "Date doesn't exist"
 
+struct BitcoinData{
 
-struct Bitcoin{
+    BitcoinData();
 
-    Bitcoin();
+    std::string strDate;
+    float currentValue;
+    struct tm currentDate;
 
     std::map<std::string, float> bitcoin;
 };
 
-void    checkValue(std::string value);
-void    checkDate(std::string date);
+void    checkValue(std::string value, BitcoinData *bitcoindata);
+void    checkDate(std::string dateValue, BitcoinData *bitcoindata);
+void    printValues(BitcoinData *bitcoindata);
+struct  tm getDate(std::string dateValue);
 #endif
