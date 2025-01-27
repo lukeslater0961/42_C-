@@ -6,11 +6,25 @@ int checkValues(std::ifstream &inFile)
 
     std::string firstLine;
     std::getline(inFile, firstLine);
-    while(std::getline(inFile, date, '|') && std::getline(inFile, value))
+    while(std::getline(inFile, date))
     {
-        // checkDate(date);
-        checkValue(value);
-        Bitcoin bitcoin;
+        size_t delimiterPos = date.find('|');
+        if (delimiterPos != std::string::npos) 
+        {
+            std::string datePart = date.substr(0, delimiterPos);
+            std::string valuePart = date.substr(delimiterPos + 1);
+            
+            datePart.erase(0, datePart.find_first_not_of(" \t"));
+            datePart.erase(datePart.find_last_not_of(" \t") + 1);
+            valuePart.erase(0, valuePart.find_first_not_of(" \t"));
+            valuePart.erase(valuePart.find_last_not_of(" \t") + 1);
+
+            checkDate(datePart);
+            checkValue(valuePart);
+            Bitcoin bitcoin;
+        }
+        else
+            std::cerr << "Error: " << INV_FORMAT  << " => " << date << std::endl;
     }
     return(0);
 }
@@ -21,12 +35,12 @@ int parseFile(std::string filename)
 
     if (!inFile)
     {
-        std::cout << CANT_OPEN << std::endl;
+        std::cerr << CANT_OPEN << std::endl;
         return (1);
     }
     else if (inFile.peek() == std::ifstream::traits_type::eof())
     {
-        std::cout << FILE_EMPTY << std::endl;
+        std::cerr << FILE_EMPTY << std::endl;
         inFile.close();
         return (1);
     }
@@ -38,7 +52,7 @@ int parseFile(std::string filename)
 int main(int argc, char **argv)
 {
     if (argc != 2)
-        std::cout << "invalid number of arguments" << std::endl;
+        std::cerr << "invalid number of arguments" << std::endl;
     else
         parseFile(static_cast<std::string>(argv[1]));
 }
