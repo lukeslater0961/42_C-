@@ -19,7 +19,6 @@ struct BitcoinData{
 
     std::string strDate;
     float currentValue;
-    struct tm currentDate;
 
     std::map<std::string, float> bitcoin;
 };

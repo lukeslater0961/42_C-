@@ -30,7 +30,6 @@ struct  tm getDate(std::string dateValue)
 
 void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
 {
-    
     int year, month , day;
     char garbage;
     std::istringstream  ss(dateValue);
@@ -52,7 +51,6 @@ void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
         std::cerr << "Error: Invalid date => " << dateValue << std::endl;
         return ;
     }
-    bitcoindata->currentDate = date;
     bitcoindata->strDate = dateValue;
 }
 
