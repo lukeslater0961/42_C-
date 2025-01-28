@@ -24,7 +24,7 @@ struct BitcoinData{
 };
 
 int   checkValue(std::string value, BitcoinData *bitcoindata);
-void    checkDate(std::string dateValue, BitcoinData *bitcoindata);
+int    checkDate(std::string dateValue, BitcoinData *bitcoindata);
 void    printValues(BitcoinData *bitcoindata);
 struct  tm getDate(std::string dateValue);
 #endif

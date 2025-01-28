@@ -20,7 +20,8 @@ int checkValues(std::ifstream &inFile)
             valuePart.erase(valuePart.find_last_not_of(" \t") + 1);
             
             BitcoinData bitcoin;
-            checkDate(datePart, &bitcoin);
+            if (checkDate(datePart, &bitcoin))
+                continue;
             if (checkValue(valuePart, &bitcoin))
                 continue;
             printValues(&bitcoin);

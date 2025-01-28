@@ -28,7 +28,7 @@ struct  tm getDate(std::string dateValue)
     return (date);
 }
 
-void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
+int    checkDate(std::string dateValue, BitcoinData *bitcoindata)
 {
     int year, month , day;
     char garbage;
@@ -38,7 +38,7 @@ void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
     if (dateValue.empty())
     {
         std::cerr << "Error: Missing value for date " << dateValue << std::endl;
-        return ;
+        return (1);
     }
     ss >> year >> garbage >> month >> garbage >> day;
     memset(&date, 0, sizeof(date));
@@ -49,9 +49,10 @@ void    checkDate(std::string dateValue, BitcoinData *bitcoindata)
     if((date.tm_mon != (month - 1)) || (date.tm_mday != day))
     {
         std::cerr << "Error: Invalid date => " << dateValue << std::endl;
-        return ;
+        return (1);
     }
     bitcoindata->strDate = dateValue;
+    return (0);
 }
 
 
@@ -87,12 +88,13 @@ int   checkValue(std::string value, BitcoinData *bitcoindata)
 void    printValues(BitcoinData *bitcoindata)
 { 
     std::map<std::string, float>::iterator it = bitcoindata->bitcoin.upper_bound(bitcoindata->strDate);
+
     if (it == bitcoindata->bitcoin.begin())
         std::cout << it->first << " => " << bitcoindata->currentValue << " = " << bitcoindata->currentValue * it->second <<std::endl;
     else
     {
         if (it != bitcoindata->bitcoin.end())
             it--;
+        std::cout << it->first << " => " << bitcoindata->currentValue << " = " << bitcoindata->currentValue * it->second <<std::endl;
     }
-    std::cout << it->first << " => " << bitcoindata->currentValue << " = " << bitcoindata->currentValue * it->second <<std::endl;
 }
