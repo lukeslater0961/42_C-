@@ -1,27 +1,30 @@
 #include "RPN.hpp"
 
-int checkDoubleOccurence(std::string arg)
-{
-    int freq[256] = {0};
-
-    for (std::string::iterator it = arg.begin() ; it != arg.end(); it++)
-        freq[static_cast<unsigned char>(*it)]++;
-
-    for (int i = 0; i < 256; ++i) {
-        if (!(i >= 48 && i <= 57) && freq[i] > 1)
-            return (1);
-    }
-    return (0);
-}
+RPN::RPN(){}
 
 void    parseArgs(char *args)
 {
     std::string arg = args;
 
-    if (arg.find_first_not_of("0123456789*/-+") != std::string::npos)
-        throw(INVALIDARGSEXCEPTION());
-    else if (arg.at(0) < '0' || arg.at(0) > '9')
-        throw(INVALIDARGSEXCEPTION());
-    if (checkDoubleOccurence(arg))
-        throw(CHAROCCURENCEEXCEPTION());
+    std::istringstream ss(arg);
+    std::string token;
+    RPN rpndata;
+
+    while (ss >> token)
+    {
+        if (token.size() > 1)
+            throw(INVALIDARGSEXCEPTION());
+        if (token.find_first_not_of("0123456789*/-+") != std::string::npos)
+            throw(INVALIDARGSEXCEPTION());
+        if (token.find_first_of("*/-+") && rpndata.rpnStack.size() == 2)
+        {
+
+        }
+        else if (token.find_first_not_of("*/-+") && rpndata.rpnStack.size() != 2)
+            throw(INVALIDFORMATEXCEPTION());
+        else
+            rpndata.rpnStack.push(*token.c_str());
+
+        std::cout << rpndata.rpnStack.top() << std::endl;
+    }
 }
