@@ -7,7 +7,8 @@
 #include <stack>
 #include <string>
 #include <sstream>
-
+#include  <cstdlib>
+#include <stdlib.h>
 
 #define INV_ARG_NUM "Invalid number of arguments"
 
@@ -32,10 +33,17 @@ class INVALIDFORMATEXCEPTION : public std::exception{
     }
 };
 
+class DIVISIONBYZEROEXCEPTION : public std::exception{
+    public:
+        const char* what() const throw(){
+            return "Division by 0 detected";
+        }
+};
+
 struct RPN{
     public:
         RPN();
-        std::stack<char>    rpnStack;
+        std::stack<std::string>    rpnStack;
 } ;
 
 void    parseArgs(char *args);
