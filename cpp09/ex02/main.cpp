@@ -9,6 +9,8 @@ int main(int argc, char **argv)
     }
     try
     {
+        if (!argv[1][0])
+            throw(EMPTYARGEXCEPTION());
         mergeMe(argv);
     }
     catch(std::exception& e)

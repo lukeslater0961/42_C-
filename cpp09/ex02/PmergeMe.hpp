@@ -15,4 +15,15 @@ struct mergeMeData{
         std::vector<int>    mergeMe;
 };
 
+class INVALIDARGSEXCEPTION: public std::exception{
+    const char* what() const throw(){
+        return "Error: Invalid char in argument";
+    }
+};
+
+class EMPTYARGEXCEPTION: public std::exception{
+    const char* what() const throw(){
+        return "Error: Empty argument in input";
+    }
+};
 #endif 
