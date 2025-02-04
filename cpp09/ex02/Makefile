@@ -4,7 +4,8 @@ CC = c++
 FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp \
-		PmergeMe.cpp
+		PmergeMe.cpp \
+		Pairs.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

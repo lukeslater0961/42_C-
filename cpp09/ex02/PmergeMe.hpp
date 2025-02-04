@@ -1,18 +1,28 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
+#include <map>
 #include <iostream>
+#include <fstream>
 #include <sstream>
+#include <cstdlib>
+#include <cstring>
 #include <vector>
 
-void    mergeMe(char **argv);
+struct t_pair{
+    t_pair *first;
+    t_pair *second;
+    int     max;
+};
 
 struct mergeMeData{
     public:
         mergeMeData();
 
-        std::string token;
+        t_pair              straggler;             
+        std::string         token;
         std::vector<int>    mergeMe;
+        std::vector<t_pair> indiv;
 };
 
 class INVALIDARGSEXCEPTION: public std::exception{
@@ -26,4 +36,8 @@ class EMPTYARGEXCEPTION: public std::exception{
         return "Error: Empty argument in input";
     }
 };
+
+void    mergeMe(char **argv);
+
+void    SetValues(mergeMeData *mergeme);
 #endif 
