@@ -21,7 +21,7 @@ struct mergeMeData{
     public:
         mergeMeData();
 
-        t_pair              straggler;         
+        t_pair              straggler;  
         std::string         token;
         std::vector<int>    mergeMe;
         std::vector<t_pair> indiv;
