@@ -28,12 +28,14 @@ void parseValues(char **argv, mergeMeData *mergeme)
         std::istringstream(value) >> num;
         mergeme->mergeMe.push_back(num);
     }
-    std::cout << mergeme->mergeMe.front() << std::endl;
 }
 
 void    mergeMe(char **argv)
 {
     mergeMeData mergeme;
     parseValues(argv, &mergeme);
-    SetValues(&mergeme);
+    setValues(&mergeme);
+    std::vector<t_pair> new_pairs = fordJohnson(mergeme.indiv);
+    std::cout << new_pairs.begin()->first << std::endl;
+    std::cout << "Returning " << new_pairs.size() << " pairs from fordJohnson" << std::endl;
 }

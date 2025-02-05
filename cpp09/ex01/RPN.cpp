@@ -47,7 +47,6 @@ void    handleOperators(RPN *rpndata, std::string token)
 
 void    parseArgs(char *args)
 {
-
     std::string arg = args;
     std::istringstream ss(arg);
     std::string token;
