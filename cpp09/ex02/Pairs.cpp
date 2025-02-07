@@ -1,61 +1,30 @@
 #include "PmergeMe.hpp"
 
-void    setValues(mergeMeData *mergeme)
+std::vector<std::pair<int, int> >    setValues(mergeMeData *mergeme)
 {
+    std::vector<std::pair<int, int> > vpairs;
+    
     if ((mergeme->mergeMe.size() % 2) != 0)
     {
         std::cout << "straggler found " << std::endl;
-        mergeme->straggler.max = mergeme->mergeMe.back();
+        mergeme->straggler = mergeme->mergeMe.back();
         mergeme->mergeMe.pop_back();
     }
-    for (std::vector<int>::iterator it = mergeme->mergeMe.begin(); it != mergeme->mergeMe.end(); it++)
-    {
-        t_pair  tpair;
-        tpair.max = *it;
-        mergeme->indiv.push_back(tpair);
-    }
+    else
+        mergeme->straggler = -1;
+    for(size_t i = 0; i < mergeme->mergeMe.size(); i += 2)
+        vpairs.push_back(std::make_pair(mergeme->mergeMe[i], mergeme->mergeMe[i + 1]));
+    
+    return(vpairs);
 }
 
-t_pair setPairValues(t_pair* first, t_pair* second)
+void    compare(std::vector<std::pair<int, int> > &vpairs)
 {
-    t_pair new_pair;
-    
-    new_pair.first = first;  
-    new_pair.second = second; 
-    new_pair.max = std::max(first->max, second->max);
-    
-    return new_pair;
-}
-
-std::vector<t_pair> fordJohnson(std::vector<t_pair> pairs)
-{
-    if (pairs.size() == 1)
-        return pairs;
-
-    std::vector<t_pair> new_pairs;
-    for (size_t i = 0; i < pairs.size(); i += 2)
+    for(std::vector<std::pair<int, int> >::iterator it = vpairs.begin(); it != vpairs.end(); it++)
     {
-        t_pair new_pair;
-
-        if (i + 1 < pairs.size())
-        {
-            t_pair first = pairs[i];
-            t_pair second = pairs[i + 1];
-            int largest = std::max(first.max, second.max);
-            
-            if (largest == first.max)
-            {
-                new_pair = setPairValues(&first, &second);
-                std::cout << "first = " << new_pair.first->max << " second  = " << new_pair.second->max << " max int  = " << new_pair.max << std::endl;// to be removed
-            }
-            else
-            {
-                new_pair = setPairValues(&second, &first);
-                std::cout << "first = " << new_pair.first->max << " second  = " << new_pair.second->max << " max int  = " << new_pair.max << std::endl;// to be removed
-            }
-            std::cout  << "largest is = " << largest << std::endl; // to be removed
-            new_pairs.push_back(new_pair);
-        }
+        int min = std::min(it->first, it->second);
+        int max = std::max(it->first, it->second);
+        it->first = min;
+        it->second = max;
     }
-    return (fordJohnson(new_pairs));
 }

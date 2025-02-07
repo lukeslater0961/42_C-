@@ -1,11 +1,12 @@
 PROG_NAME = PmergeMe
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98
+FLAGS = -Werror -Wextra -Wall -std=c++11
 
 SRCS = main.cpp \
 		PmergeMe.cpp \
-		Pairs.cpp
+		Pairs.cpp \
+		jacobsthal.cpp 
 
 
 OBJS = $(SRCS:.cpp=.o)
