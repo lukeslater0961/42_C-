@@ -6,8 +6,8 @@ FLAGS = -Werror -Wextra -Wall -std=c++11
 SRCS = main.cpp \
 		PmergeMe.cpp \
 		Pairs.cpp \
-		jacobsthal.cpp 
-
+		Utils.cpp \
+		PmergeMeDeque.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
