@@ -12,6 +12,13 @@
 
 #define INV_ARG_NUM "Invalid number of arguments"
 
+class EMPTYARGSEXCEPTION : public std::exception{
+    public:
+        const char* what() const throw(){
+            return "Empty arg or only whitespaces found in the parameters";
+        }
+};
+
 class INVALIDARGSEXCEPTION : public std::exception{
     public:
         const char* what() const throw(){

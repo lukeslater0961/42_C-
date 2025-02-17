@@ -13,7 +13,10 @@ int main(int argc, char **argv)
     else
     {
         try{
-            parseArgs(argv[1]);
+            if (argv[1][0])
+                parseArgs(argv[1]);
+            else
+                throw(EMPTYARGSEXCEPTION());
         }
         catch(const std::exception& e){
             std::cerr << e.what() << std::endl;
