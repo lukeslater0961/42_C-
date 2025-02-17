@@ -59,7 +59,6 @@ void    parseArgs(char *args)
 
     while (ss >> token)
     {
-        std::cout << "arg" <<std::endl;
         if (token.size() > 1)
             throw(INVALIDARGSEXCEPTION());
         if (token.find_first_not_of("0123456789*/-+") != std::string::npos)
@@ -71,5 +70,7 @@ void    parseArgs(char *args)
         else
             rpndata.rpnStack.push(token);
     }
+    if (rpndata.rpnStack.size() != 1)
+        throw(INVALIDARGSEXCEPTION());
     std::cout << rpndata.rpnStack.top() << std::endl;
 }   
