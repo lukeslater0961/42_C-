@@ -73,10 +73,10 @@ void                                    setTime(mergeMeData* mergeme, int sortSt
 void                                    insert(std::vector<int> &L, int value);
 void                                    printOutput(mergeMeData* mergeme, std::vector<int> vfpairs);
 
-void    dcompare(std::deque<std::pair<int, int> > &dpairs);
-std::deque<std::pair<int, int> >    setdValues(mergeMeData *mergeme);
-void doDequeMerge(mergeMeData* mergeme);
-void    dinsert(std::deque<int> &L, int value);
+void                                    dcompare(std::deque<std::pair<int, int> > &dpairs);
+std::deque<std::pair<int, int> >        setdValues(mergeMeData *mergeme);
+void                                    doDequeMerge(mergeMeData* mergeme);
+void                                    dinsert(std::deque<int> &L, int value);
 
 
 #endif 

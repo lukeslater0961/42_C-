@@ -4,28 +4,17 @@ BitcoinData::BitcoinData()
 {
     std::string date, value;
     std::ifstream csv("data.csv");
-    while (std::getline(csv, date, ',') && std::getline(csv, value))
-        bitcoin[date] = std::strtof(value.c_str(), NULL);
-}
-
-struct  tm getDate(std::string dateValue)
-{
-    int year, month , day;
-    char garbage;
-    std::istringstream  ss(dateValue);
-    struct tm date;
-
-    if (dateValue.empty())
+    if (csv)
     {
-        std::cerr << "Error: Missing value for date " << dateValue << std::endl;
-        return (date);
+        isOpen = true;
+        while (std::getline(csv, date, ',') && std::getline(csv, value))
+            bitcoin[date] = std::strtof(value.c_str(), NULL);
     }
-    ss >> year >> garbage >> month >> garbage >> day;
-    memset(&date, 0, sizeof(date));
-    date.tm_year = year - 1900;
-    date.tm_mon = month - 1;
-    date.tm_mday = day;
-    return (date);
+    else
+    {
+        csv.close();
+        isOpen = false;
+    }
 }
 
 int    checkDate(std::string dateValue, BitcoinData *bitcoindata)
@@ -90,7 +79,7 @@ void    printValues(BitcoinData *bitcoindata)
     std::map<std::string, float>::iterator it = bitcoindata->bitcoin.upper_bound(bitcoindata->strDate);
 
     if (it == bitcoindata->bitcoin.begin())
-        std::cout << it->first << " => " << bitcoindata->currentValue << " = " << bitcoindata->currentValue * it->second <<std::endl;
+        std::cerr << "Error: no lower date found" <<std::endl;
     else
     {
         if (it != bitcoindata->bitcoin.end())

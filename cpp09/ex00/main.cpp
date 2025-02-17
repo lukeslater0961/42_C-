@@ -20,6 +20,11 @@ int checkValues(std::ifstream &inFile)
             valuePart.erase(valuePart.find_last_not_of(" \t") + 1);
             
             BitcoinData bitcoin;
+            if (!bitcoin.isOpen)
+            {
+                std::cerr << "Error: couldn't open CSV file" <<std::endl;                
+                return (1);
+            }
             if (checkDate(datePart, &bitcoin))
                 continue;
             if (checkValue(valuePart, &bitcoin))

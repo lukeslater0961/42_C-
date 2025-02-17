@@ -19,9 +19,11 @@ struct BitcoinData{
 
     std::string strDate;
     float currentValue;
+    bool  isOpen;
 
     std::map<std::string, float> bitcoin;
 };
+
 
 int   checkValue(std::string value, BitcoinData *bitcoindata);
 int    checkDate(std::string dateValue, BitcoinData *bitcoindata);
