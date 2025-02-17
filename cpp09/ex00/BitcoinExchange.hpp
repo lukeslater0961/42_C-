@@ -7,8 +7,9 @@
 #include <sstream>
 #include <cstdlib>
 #include <cstring>
+#include <regex.h>
 
-# define CANT_OPEN "Can't open file"
+# define CANT_OPEN "Can't open input file"
 # define FILE_EMPTY "File is empty"
 # define INV_FORMAT "Invalid format"
 # define NON_EXIST "Date doesn't exist"
@@ -29,4 +30,5 @@ int   checkValue(std::string value, BitcoinData *bitcoindata);
 int    checkDate(std::string dateValue, BitcoinData *bitcoindata);
 void    printValues(BitcoinData *bitcoindata);
 struct  tm getDate(std::string dateValue);
+int handleCsv(BitcoinData* bitcoin);
 #endif

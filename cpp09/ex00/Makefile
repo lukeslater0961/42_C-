@@ -1,7 +1,7 @@
 PROG_NAME = btc
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98
+FLAGS = -Werror -Wextra -Wall -std=c++98 -g
 
 SRCS = main.cpp \
 	BitcoinExchange.cpp\
