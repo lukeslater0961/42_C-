@@ -63,7 +63,6 @@ void filldPairs(std::deque<int> &L, std::deque<int> &pend, std::deque<std::pair<
 {
     for(std::deque<std::pair<int, int> >::iterator it = vpairs.begin(); it != vpairs.end(); it++)
     {
-        // std::cout << "L.push_back(" << it->second << "), pend.push_back(" << it->first << ")" << std::endl;
         dinsert(L, it->second);
         pend.push_back(it->first);
     }

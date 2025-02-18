@@ -103,7 +103,6 @@ void fillPairs(std::vector<int> &L, std::vector<int> &pend, std::vector<std::pai
 {
     for(std::vector<std::pair<int, int> >::iterator it = vpairs.begin(); it != vpairs.end(); it++)
     {
-        // std::cout << "L.push_back(" << it->second << "), pend.push_back(" << it->first << ")" << std::endl;
         insert(L, it->second);
         pend.push_back(it->first);
     }
@@ -182,11 +181,4 @@ void    mergeMe(char **argv)
     doDequeMerge(&mergeme);
 
     printOutput(&mergeme, vfpairs);
-
-    // for(std::vector<int>::iterator it = fpairs.begin(); it != fpairs.end(); it++)
-    //     std::cout << *it << " ";//to be removed
-    // std::cout << std::endl << "Time to process a range of " << mergeme.mergeMe.size() << " elements with std::vector :" << double(mergeme.end - mergeme.start) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
-
-    // for(std::vector<std::pair<int, int> >::iterator it = vpairs.begin(); it != vpairs.end(); it++)
-    //     std::cout << it->first << " " << it->second <<std::endl;//to be removed
 }
