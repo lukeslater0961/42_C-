@@ -48,11 +48,11 @@ void    handleOperators(RPN *rpndata, std::string token)
 void    parseArgs(char *args)
 {
     std::string arg = args;
+    if (arg.empty())
+        throw(EMPTYARGSEXCEPTION());
     arg.erase(arg.find_last_not_of(" \t\n\r\f\v") + 1);
     arg.erase(0, arg.find_first_not_of(" \t\n\r\f\v"));
 
-    if (arg.empty())
-        throw(EMPTYARGSEXCEPTION());
     std::istringstream ss(arg);
     std::string token;
     RPN rpndata;
