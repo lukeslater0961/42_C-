@@ -37,6 +37,8 @@ void parseValues(char **argv, mergeMeData *mergeme)
         mergeme->dequeMe.push_back(num);
         mergeme->setValues.insert(num);
     }
+    if (mergeme->mergeMe.empty())
+        throw(INVALIDARGSEXCEPTION());
 }
 
 
@@ -48,6 +50,7 @@ void merge(std::vector<std::pair<int, int> > &vpairs, int left, int right, int m
     std::vector<std::pair<int, int> > rightArray;
 	leftArray.resize(n1);
 	rightArray.resize(n2);
+    
     for(int i  = 0; i < n1; ++i)
         leftArray[i] = vpairs[left + i];
     for(int i  = 0; i < n2; ++i)

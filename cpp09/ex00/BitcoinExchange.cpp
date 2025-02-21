@@ -38,7 +38,7 @@ int parseCsv(std::ifstream& csv, BitcoinData* bitcoin)
     std::getline(csv, firstLine);
     if (strncmp(firstLine.c_str(), "date,exchange_rate", 18) != 0)
     {
-        std::cerr << "Error: " << INV_FORMAT << " in Csv => " << firstLine << std::endl; 
+        std::cerr << "Error: " << INV_FORMAT << " in first line of Csv => " << firstLine << std::endl; 
         return (1);
     }
     regex_t regex;

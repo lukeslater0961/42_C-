@@ -6,6 +6,11 @@ int checkValues(std::ifstream &inFile)
 
     std::string firstLine;
     std::getline(inFile, firstLine);
+    if (strncmp(firstLine.c_str(), "date | value", 12) != 0)
+    {
+        std::cout << "Error: " << INV_FORMAT << " in first line of Input.txt => " << firstLine << std::endl;
+        return (1);
+    }
     while(std::getline(inFile, date))
     {
         size_t delimiterPos = date.find('|');
