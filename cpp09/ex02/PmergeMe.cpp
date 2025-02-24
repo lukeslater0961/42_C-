@@ -15,7 +15,7 @@ void    getValues(char **argv, mergeMeData *mergeMe)
 
 void checkDuplicates(int value, mergeMeData *mergeme)
 {
-    if (mergeme->setValues.find(value) != mergeme->setValues.end())
+	if (mergeme->setValues.find(value) != mergeme->setValues.end())
         throw DUPLICATEEXCEPTION();
 }
 
@@ -173,9 +173,6 @@ std::vector<int> doVectorMerge(mergeMeData* mergeme)
 void    mergeMe(char **argv)
 {
     mergeMeData mergeme;
-
-    std::deque<int>  Ld;
-    std::deque<int>  pendd;
 
     mergeme.startSet = false;
     parseValues(argv, &mergeme);

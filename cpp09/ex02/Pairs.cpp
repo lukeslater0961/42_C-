@@ -6,7 +6,6 @@ std::vector<std::pair<int, int> >    setValues(mergeMeData *mergeme)
     
     if ((mergeme->mergeMe.size() % 2) != 0)
     {
-        std::cout << "straggler found " << std::endl;
         mergeme->straggler = mergeme->mergeMe.back();
         mergeme->mergeMe.pop_back();
         mergeme->hasStraggler = true;
@@ -29,6 +28,7 @@ void    compare(std::vector<std::pair<int, int> > &vpairs)
         it->second = max;
     }
 }
+
 //______________________________________________________________________________________-DEQUE FUNCTIONS
 
 std::deque<std::pair<int, int> >    setdValues(mergeMeData *mergeme)
