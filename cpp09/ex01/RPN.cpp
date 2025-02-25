@@ -63,11 +63,11 @@ void    parseArgs(char *args)
             throw(INVALIDARGSEXCEPTION());
         if (token.find_first_not_of("0123456789*/-+") != std::string::npos)
             throw(INVALIDARGSEXCEPTION());
-        if (!token.find_first_of("*/-+") && rpndata.rpnStack.size() == 2)
-            handleOperators(&rpndata, token);
-        else if (token.find_first_not_of("*/-+") && rpndata.rpnStack.size() != 2)
-            throw(INVALIDFORMATEXCEPTION());
-        else
+		if (!token.find_first_of("*/-+")) {
+			if (rpndata.rpnStack.size() < 2)
+				throw(INVALIDFORMATEXCEPTION());
+			handleOperators(&rpndata, token);
+		}else
             rpndata.rpnStack.push(token);
     }
     if (rpndata.rpnStack.size() != 1)

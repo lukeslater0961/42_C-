@@ -1,7 +1,7 @@
 PROG_NAME = PmergeMe
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++11
+FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp \
 		PmergeMe.cpp \

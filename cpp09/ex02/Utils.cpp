@@ -28,7 +28,9 @@ void    printOutput(mergeMeData* mergeme, std::vector<int> vfpairs)
 
     std::cout << "After: ";
     for(std::vector<int>::iterator it = vfpairs.begin(); it != vfpairs.end(); it++)
-        std::cout << *it << " ";
+	{
+		std::cout << *it << " ";
+	}
 	if (mergeme->hasStraggler)
 		size += 1;
     std::cout  << std::endl << std::endl << "Time to process a range of " << mergeme->mergeMe.size() << " elements with std::vector :" << double(mergeme->vend - mergeme->vstart) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
