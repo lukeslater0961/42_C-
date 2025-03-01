@@ -6,7 +6,6 @@ void    handleOperators(RPN *rpndata, std::string token)
 {
     int a;
     int b;
-	std::cout << "handling operator on " <<  token << std::endl;
     std::string var = rpndata->rpnStack.top();
     std::istringstream(var) >> a;
 
