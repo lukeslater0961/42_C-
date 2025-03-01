@@ -23,7 +23,6 @@ void    setTime(mergeMeData* mergeme, int sortState, int sortType)
 void    printOutput(mergeMeData* mergeme, std::vector<int> vfpairs)
 {
 	int size = mergeme->mergeMe.size();
-    std::cout << std::setprecision(256);
     std::cout << "Before: " << mergeme->token << std::endl << std::endl;
 
     std::cout << "After: ";
@@ -33,6 +32,6 @@ void    printOutput(mergeMeData* mergeme, std::vector<int> vfpairs)
 	}
 	if (mergeme->hasStraggler)
 		size += 1;
-    std::cout  << std::endl << std::endl << "Time to process a range of " << mergeme->mergeMe.size() << " elements with std::vector :" << double(mergeme->vend - mergeme->vstart) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
-    std::cout  << "Time to process a range of " << mergeme->mergeMe.size() << " elements with std::deque :" << double(mergeme->dend - mergeme->dstart) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
+    std::cout  << std::endl << std::endl << "Time to process a range of " << size << " elements with std::vector :" << double(mergeme->vend - mergeme->vstart) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
+    std::cout  << "Time to process a range of " << size << " elements with std::deque :" << double(mergeme->dend - mergeme->dstart) * (1000000 / CLOCKS_PER_SEC) << "us" << std::endl; 
 }

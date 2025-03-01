@@ -37,7 +37,6 @@ std::deque<std::pair<int, int> >    setdValues(mergeMeData *mergeme)
     
     if ((mergeme->dequeMe.size() % 2) != 0)
     {
-        std::cout << "straggler found " << std::endl;
         mergeme->straggler = mergeme->dequeMe.back();
         mergeme->dequeMe.pop_back();
         mergeme->hasStraggler = true;
