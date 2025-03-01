@@ -6,6 +6,7 @@ void    handleOperators(RPN *rpndata, std::string token)
 {
     int a;
     int b;
+	std::cout << "handling operator on " <<  token << std::endl;
     std::string var = rpndata->rpnStack.top();
     std::istringstream(var) >> a;
 
@@ -63,7 +64,7 @@ void    parseArgs(char *args)
             throw(INVALIDARGSEXCEPTION());
         if (token.find_first_not_of("0123456789*/-+") != std::string::npos)
             throw(INVALIDARGSEXCEPTION());
-		if (!token.find_first_of("*/-+")) {
+		if (token.find_first_of("*/-+") == 0) {
 			if (rpndata.rpnStack.size() < 2)
 				throw(INVALIDFORMATEXCEPTION());
 			handleOperators(&rpndata, token);

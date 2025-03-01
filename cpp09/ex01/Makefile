@@ -1,7 +1,7 @@
 PROG_NAME = RPN
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98 -g
+FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS = main.cpp \
 	RPN.cpp
